@@ -11,11 +11,13 @@ const paths: DistPath = {
 
 const mode = 'development';
 const isDev = mode === 'development';
+const PORT = 3000;
 
 const config: webpack.Configuration = distWebpackConfig({
   mode: 'development',
   paths,
   isDev,
+  port: PORT,
 });
 
 export default config;

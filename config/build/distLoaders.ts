@@ -2,20 +2,20 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { DistOptions } from './types/config';
 
-export function distLoaders(options: DistOptions): webpack.RuleSetRule[] {
+export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
-      // Creates `style` nodes from JS strings
-      options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {
-          modules: true,
+          modules: {
+            auto: (resourcePath: string) => Boolean(resourcePath.includes('.module.')),
+            localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
+          },
         },
       },
-      // Compiles Sass to CSS
       'sass-loader',
     ],
   };

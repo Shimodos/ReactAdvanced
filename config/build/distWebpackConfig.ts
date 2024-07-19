@@ -1,4 +1,3 @@
-import path from 'path';
 import { distLoaders } from './distLoaders';
 import { distConfig } from './distPlugins';
 import { distResolve } from './distResolve';
@@ -19,7 +18,7 @@ export function distWebpackConfig(options: DistOptions): webpack.Configuration {
     },
     plugins: distConfig(options),
     module: {
-      rules: distLoaders(),
+      rules: distLoaders(options),
     },
     resolve: distResolve(),
     devtool: isDev ? 'inline-source-map' : undefined,

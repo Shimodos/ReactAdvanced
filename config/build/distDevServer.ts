@@ -5,5 +5,6 @@ export function distDevServer(options: DistOptions): DevServerConfiguration {
   return {
     port: options.port,
     open: true,
+    historyApiFallback: true,
   };
 }

@@ -6,12 +6,13 @@ import { AboutePageAsync } from './pages/AboutePage/AboutePage.async';
 import { MainPageAsync } from './pages/MainPage/MainPage.async';
 import { Theme, ThemeContext } from './styles/theme/ThemeContext';
 import { useTheme } from './styles/theme/useTheme';
+import { classNames } from './helpers/classNames/classNames';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames('app', {}, [theme])}>
       <button onClick={toggleTheme}>Theme</button>
       {/* <div>React TypeScript Webpack Starter</div> */}
       <Link to={'/'}>Main</Link>

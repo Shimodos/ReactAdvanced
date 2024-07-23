@@ -1,13 +1,18 @@
-import React, { Suspense } from 'react';
-import './index.scss';
+import React, { Suspense, useContext, useState } from 'react';
+import './styles/index.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { AboutePageAsync } from './pages/AboutePage/AboutePage.async';
 import { MainPageAsync } from './pages/MainPage/MainPage.async';
+import { Theme, ThemeContext } from './styles/theme/ThemeContext';
+import { useTheme } from './styles/theme/useTheme';
 
 const App = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className="app">
+    <div className={`app ${theme}`}>
+      <button onClick={toggleTheme}>Theme</button>
       {/* <div>React TypeScript Webpack Starter</div> */}
       <Link to={'/'}>Main</Link>
       <Link to={'/about'}>AboutePage</Link>

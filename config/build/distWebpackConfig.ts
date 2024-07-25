@@ -20,7 +20,7 @@ export function distWebpackConfig(options: DistOptions): webpack.Configuration {
     module: {
       rules: distLoaders(options),
     },
-    resolve: distResolve(),
+    resolve: distResolve(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? distDevServer(options) : undefined,
   };

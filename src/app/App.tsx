@@ -2,11 +2,10 @@ import React, { Suspense, useContext, useState } from 'react';
 import './styles/index.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { AboutePageAsync } from './pages/AboutePage/AboutePage.async';
-import { MainPageAsync } from './pages/MainPage/MainPage.async';
-import { Theme, ThemeContext } from './styles/theme/ThemeContext';
-import { useTheme } from './styles/theme/useTheme';
-import { classNames } from './helpers/classNames/classNames';
+import { classNames } from '../shared/lib/classNames/classNames';
+import { useTheme } from './providers/ThemeProvider';
+import { AboutePage } from 'pages/AboutePage';
+import { MainPage } from 'pages/MainPage';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -14,14 +13,13 @@ const App = () => {
   return (
     <div className={classNames('app', {}, [theme])}>
       <button onClick={toggleTheme}>Theme</button>
-      {/* <div>React TypeScript Webpack Starter</div> */}
       <Link to={'/'}>Main</Link>
       <Link to={'/about'}>AboutePage</Link>
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/about" element={<AboutePageAsync />} />
-          <Route path="/" element={<MainPageAsync />} />
+          <Route path="/about" element={<AboutePage />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </Suspense>
     </div>

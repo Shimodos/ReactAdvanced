@@ -1,13 +1,11 @@
 type Mods = Record<string, boolean | string>;
 
-export function classNames(classes: string, mods: Mods, additional: string[]): string {
+export function classNames(classes: string, mods: Mods = {}, additional: string[] = []): string {
   return [
     classes,
-    ...additional,
+    ...additional.filter(Boolean),
     ...Object.entries(mods)
-      .filter(([classeName, value]) => Boolean(value))
-      .map(([classeName]) => classeName),
+      .filter(([className, value]) => Boolean(value))
+      .map(([className]) => className),
   ].join(' ');
 }
-
-classNames('remove-btn', { hover: true, selectabel: true, red: false }, ['pdg']);

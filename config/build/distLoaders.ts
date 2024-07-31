@@ -3,6 +3,23 @@ import webpack from 'webpack';
 import { DistOptions } from './types/config';
 
 export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]',
+        },
+      },
+    ],
+  };
+
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -26,5 +43,5 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  return [typescriptLoader, cssLoaders];
+  return [typescriptLoader, cssLoaders, svgLoader, fileLoader];
 }

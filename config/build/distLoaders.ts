@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { DistOptions } from './types/config';
+import { t } from 'i18next';
 
 export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
   const svgLoader = {
@@ -18,6 +19,26 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
         },
       },
     ],
+  };
+
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+        // plugins: [
+        //   [
+        //     'i18next-extract',
+        //     {
+        //       locales: ['en', 'ua'],
+        //       keyAsDefaultValue: true,
+        //     },
+        //   ],
+        // ],
+      },
+    },
   };
 
   const cssLoaders = {
@@ -43,5 +64,5 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  return [typescriptLoader, cssLoaders, svgLoader, fileLoader];
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoaders];
 }

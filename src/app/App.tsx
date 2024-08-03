@@ -4,10 +4,9 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { useTheme } from './providers/ThemeProvider';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Suspense, FC } from 'react';
 
-const App = () => {
+const App: FC = () => {
   const { theme } = useTheme();
 
   return (

@@ -1,10 +1,8 @@
-import { AboutePage } from 'pages/AboutePage';
-import { MainPage } from 'pages/MainPage';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/consfig/routeConfig/routeConfig';
 
-const AppRouter = () => {
+const AppRouter = (): JSX.Element => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>

@@ -8,14 +8,20 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
   const [collapsed, setCollapsed] = useState(false);
 
-  const handleToggle = () => {
+  const handleToggle = (): void => {
     setCollapsed((prev) => !prev);
   };
   return (
-    <div className={classNames(classes.Sidebar, { [classes.collapsed]: collapsed }, [className])}>
+    <div
+      className={classNames(
+        classes.Sidebar,
+        { [classes.collapsed]: collapsed },
+        [className]
+      )}
+    >
       <button onClick={handleToggle}>TOGLE</button>
       <div className={classes.switchers}>
         <ThemeSwitcher />

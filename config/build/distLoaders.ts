@@ -1,12 +1,11 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { DistOptions } from './types/config';
-import { t } from 'i18next';
 
 export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: ['@svgr/webpack']
   };
 
   const fileLoader = {
@@ -15,10 +14,10 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
       {
         loader: 'file-loader',
         options: {
-          name: 'images/[name].[ext]',
-        },
-      },
-    ],
+          name: 'images/[name].[ext]'
+        }
+      }
+    ]
   };
 
   const babelLoader = {
@@ -27,7 +26,7 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env'],
+        presets: ['@babel/preset-env']
         // plugins: [
         //   [
         //     'i18next-extract',
@@ -37,8 +36,8 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
         //     },
         //   ],
         // ],
-      },
-    },
+      }
+    }
   };
 
   const cssLoaders = {
@@ -49,19 +48,20 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
         loader: 'css-loader',
         options: {
           modules: {
-            auto: (resourcePath: string) => Boolean(resourcePath.includes('.module.')),
-            localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
-          },
-        },
+            auto: (resourcePath: string) =>
+              Boolean(resourcePath.includes('.module.')),
+            localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
+          }
+        }
       },
-      'sass-loader',
-    ],
+      'sass-loader'
+    ]
   };
 
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
-    exclude: /node_modules/,
+    exclude: /node_modules/
   };
 
   return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoaders];

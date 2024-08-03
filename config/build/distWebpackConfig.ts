@@ -14,14 +14,14 @@ export function distWebpackConfig(options: DistOptions): webpack.Configuration {
     output: {
       filename: '[name].[contenthash].js',
       path: paths.dist,
-      clean: true,
+      clean: true
     },
     plugins: distConfig(options),
     module: {
-      rules: distLoaders(options),
+      rules: distLoaders(options)
     },
     resolve: distResolve(options),
     devtool: isDev ? 'inline-source-map' : undefined,
-    devServer: isDev ? distDevServer(options) : undefined,
+    devServer: isDev ? distDevServer(options) : undefined
   };
 }

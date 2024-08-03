@@ -12,5 +12,5 @@ render(
     </ThemeProvauder>
   </BrowserRouter>,
 
-  document.getElementById('root'),
+  document.getElementById('root')
 );

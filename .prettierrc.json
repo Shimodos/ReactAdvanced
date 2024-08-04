@@ -7,7 +7,7 @@
     {
       "files": "src/**/*.scss",
       "options": {
-        "singleQuote": true,
+        "singleQuote": false,
         "tabWidth": 2
       }
     }

@@ -18,5 +18,7 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": ["src/**/*", ".eslintrc.js"],
+  "exclude": ["node_modules", "dist"]
 }

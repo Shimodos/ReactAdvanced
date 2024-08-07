@@ -5,5 +5,7 @@
   "Main": "Main",
   "About": "About",
   "Lang": "En",
-  "NotFoundPage": "Page not found 404"
+  "NotFoundPage": "Page not found 404",
+  "unexpectedError": "An unexpected error occurred",
+  "reload": "Reload page"
 }

@@ -1,4 +1,4 @@
-import { BugButton } from 'app/providers/ErrorBoundery';
+// import { BugButton } from 'app/providers/ErrorBoundery';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

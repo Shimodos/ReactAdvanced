@@ -49,7 +49,7 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': 'off',
     'react/no-deprecated': 'off',
     'i18next/no-literal-string': ['warn', { markupOnly: true }],
-    // '@typescript-eslint/indent': ['error', 2],
+    // '@typescript-eslint/indent': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {

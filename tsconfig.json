@@ -19,6 +19,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["src/**/*", ".eslintrc.js", "config/**/*"],
+  "include": ["src/**/*", ".eslintrc.js", "config/**/*", "config/jest/setupTest.ts"],
   "exclude": ["node_modules", "dist"]
 }

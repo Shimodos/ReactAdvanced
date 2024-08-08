@@ -4,11 +4,7 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended',
-    'plugin:i18next/recommended'
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:i18next/recommended'],
   overrides: [
     {
       env: {
@@ -48,8 +44,9 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     '@typescript-eslint/space-before-function-paren': 'off',
     'react/no-deprecated': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true }],
+    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
     // '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
@@ -66,5 +63,13 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true
-  }
+  },
+  overrides: [
+    {
+      files: ['**?src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ]
 };

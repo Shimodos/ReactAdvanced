@@ -1,3 +1,5 @@
+import path from 'path';
+
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -14,11 +16,17 @@ export default {
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   moduleDirectories: ['node_modules'],
+  modulePaths: ['<rootDir>', '<rootDir>/src'],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
   testMatch: [
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
-  rootDir: '../../'
+  rootDir: '../../',
+  moduleNameMapper: {
+    '\\.(css|less|scss)$': 'identity-obj-proxy',
+    '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  }
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 

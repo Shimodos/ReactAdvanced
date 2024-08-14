@@ -1,6 +1,7 @@
 export type DistMode = 'development' | 'production';
 
 export interface DistPath {
+  [x: string]: any;
   entry: string;
   dist: string;
   html: string;

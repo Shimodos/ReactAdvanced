@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:i18next/recommended'],
+  extends: [
+    'standard-with-typescript',
+    'plugin:react/recommended',
+    'plugin:i18next/recommended',
+    'plugin:storybook/recommended'
+  ],
   overrides: [
     {
       env: {
@@ -50,7 +55,11 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     '@typescript-eslint/space-before-function-paren': 'off',
     'react/no-deprecated': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
+    '@typescript-eslint/naming-convention': 'off',
+    'i18next/no-literal-string': [
+      'warn',
+      { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] }
+    ],
     // '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/member-delimiter-style': [

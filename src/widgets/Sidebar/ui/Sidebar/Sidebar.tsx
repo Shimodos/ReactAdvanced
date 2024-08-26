@@ -39,7 +39,7 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
       </Button>
       <div className={classes.items}>
         <div>
-          <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={classes.item}>
+          <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
             <MaineIcone className={classes.icon} />
             <span className={classes.link}>{t('Main')}</span>
           </AppLink>

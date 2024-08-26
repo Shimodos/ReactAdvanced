@@ -4,7 +4,8 @@
   "MainPage": "Main Page",
   "Main": "Main",
   "About": "About",
-  "Lang": "En",
+  "Lang": "English",
+  "ShortLang": "EN",
   "NotFoundPage": "Page not found 404",
   "unexpectedError": "An unexpected error occurred",
   "reload": "Reload page"

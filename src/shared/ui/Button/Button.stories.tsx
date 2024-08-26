@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button, ThemeButton } from './Button';
+import { Button, SizeButton, ThemeButton } from './Button';
 import '../../../app/styles/index.scss';
 import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
@@ -34,10 +34,66 @@ export const Clear: Story = {
   }
 };
 
+export const Background: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND
+  }
+};
+
+export const BackgroundInverted: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND_INVERTED
+  }
+};
+
 export const Outline: Story = {
   args: {
     children: 'Text',
     theme: ThemeButton.OUTLINE
+  }
+};
+
+export const OutlineSizel: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    size: SizeButton.L
+  }
+};
+
+export const OutlineSizeXl: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    size: SizeButton.XL
+  }
+};
+
+export const Square: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND,
+    square: true
+  }
+};
+
+export const SquareSizeL: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND,
+    square: true,
+    size: SizeButton.L
+  }
+};
+
+export const SquareSizeXL: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND,
+    square: true,
+    size: SizeButton.XL
   }
 };
 

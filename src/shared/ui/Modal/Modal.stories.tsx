@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Modal } from './Modal';
 import '../../../app/styles/index.scss';
-import { Dark } from 'pages/AboutePage/ui/AboutePage.stories';
 import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -55,26 +54,3 @@ export const LongContentDark: Story = {
 };
 
 LongContentDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-// const ModalWithHook = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   return (
-//     <>
-//       <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
-//       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-//         This is a modal that can be opened and closed.
-//       </Modal>
-//     </>
-//   );
-// };
-
-// export const Openable: Story = {
-//   render: () => <ModalWithHook />
-// };
-
-// export const Closed: Story = {
-//   args: {
-//     children: 'This modal is closed by default',
-//     isOpen: false
-//   }
-// };

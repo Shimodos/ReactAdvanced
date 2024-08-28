@@ -31,7 +31,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', '@typescript-eslint', 'i18next'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
     // 'react/jsx-indent': [2, 2],
     // 'react/jsx-indent-props': [2, 2],
@@ -74,7 +74,9 @@ module.exports = {
           requireLast: false // Не требовать точку с запятой после последнего члена
         }
       }
-    ]
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
   globals: {
     __IS_DEV__: true

@@ -1,5 +1,4 @@
-import './styles/index.scss';
-import React, { Suspense, FC } from 'react';
+import React, { Suspense, FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';

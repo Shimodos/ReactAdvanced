@@ -76,7 +76,9 @@ module.exports = {
       }
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-param-reassign': 'off',
+    'typescript-eslint/explicit-function-return-type': 'off'
   },
   globals: {
     __IS_DEV__: true

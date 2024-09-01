@@ -3,11 +3,8 @@
 @import "themes/dark";
 @import "themes/normal";
 
-:root {
-  font: var(--font-l);
-}
-
-.body {
+.app,
+.app_modal {
   font: var(--font-l);
   color: var(--primary-color);
 }

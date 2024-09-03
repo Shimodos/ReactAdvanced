@@ -8,5 +8,8 @@
   "ShortLang": "EN",
   "NotFoundPage": "Page not found 404",
   "unexpectedError": "An unexpected error occurred",
-  "reload": "Reload page"
+  "reload": "Reload page",
+  "username": "Username",
+  "password": "Password",
+  "login": "Login"
 }

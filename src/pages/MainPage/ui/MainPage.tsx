@@ -1,5 +1,5 @@
 // import { BugButton } from 'app/providers/ErrorBoundery';
-import { Counter } from 'app/entities/Counter';
+import { Counter } from 'entities/Counter';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

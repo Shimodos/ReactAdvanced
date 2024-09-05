@@ -19,6 +19,12 @@
       "module": "CommonJS"
     }
   },
-  "include": ["src/**/*", ".eslintrc.js", "config/**/*", "config/jest/setupTest.ts"],
+  "include": [
+    "src/**/*",
+    ".eslintrc.js",
+    "config/**/*",
+    "config/jest/setupTest.ts",
+    "json-server/**/*"
+  ],
   "exclude": ["node_modules", "dist"]
 }

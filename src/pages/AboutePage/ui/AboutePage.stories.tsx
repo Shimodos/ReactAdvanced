@@ -3,6 +3,7 @@ import '../../../app/styles/index.scss';
 import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import AboutePage from './AboutePage';
+import { StoreDecorator } from 'shared/consfig/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
   title: 'page/AboutePage',
@@ -27,4 +28,4 @@ export const Dark: Story = {
   args: {}
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

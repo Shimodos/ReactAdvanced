@@ -11,5 +11,7 @@
   "reload": "Reload page",
   "username": "Username",
   "password": "Password",
-  "login": "Login"
+  "login": "Login",
+  "Login form": "Login form",
+  "loginError": "Incorrect username or password"
 }

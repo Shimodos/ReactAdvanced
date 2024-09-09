@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
 import { counterActions } from '../model/slice/counterSlice';

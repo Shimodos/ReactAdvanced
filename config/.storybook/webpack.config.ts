@@ -1,6 +1,6 @@
 import path from 'path';
 import { DistPath } from './../build/types/config';
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { distCssLoaders } from './../build/loaders/distCssLoaders';
 
 export default ({ config }: { config: webpack.Configuration }): webpack.Configuration => {
@@ -34,6 +34,12 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
       use: ['@svgr/webpack']
     });
     config.module.rules.push(distCssLoaders(true));
+
+    config.plugins?.push(
+      new DefinePlugin({
+        __IS_DEV__: true
+      })
+    );
   }
 
   return config;

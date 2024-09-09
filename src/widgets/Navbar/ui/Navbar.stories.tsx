@@ -4,6 +4,7 @@ import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDec
 import { Theme } from 'app/providers/ThemeProvider';
 import { Navbar } from './Navbar';
 import { ThemeButton } from 'shared/ui/Button/Button';
+import { StoreDecorator } from 'shared/consfig/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
   title: 'widget/Navbar',
@@ -23,14 +24,15 @@ type Story = StoryObj<typeof meta> & { theme?: string };
 export const Light: Story = {
   args: {}
 };
+Light.decorators = [StoreDecorator({})];
 
 export const Dark: Story = {
   args: {}
 };
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const ClearInverted: Story = {
   args: {},
   theme: ThemeButton.CLEAR_INVERTED
 };
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+ClearInverted.decorators = [StoreDecorator({})];

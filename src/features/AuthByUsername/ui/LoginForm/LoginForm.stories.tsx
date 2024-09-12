@@ -18,7 +18,7 @@
 // export const Primary: Story = {};
 
 import type { Meta, StoryObj } from '@storybook/react';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from 'shared/consfig/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {

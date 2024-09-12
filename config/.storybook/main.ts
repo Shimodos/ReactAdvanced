@@ -13,6 +13,15 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-webpack5',
     options: {}
-  }
+  },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic'
+        }
+      }
+    }
+  })
 };
 export default config;

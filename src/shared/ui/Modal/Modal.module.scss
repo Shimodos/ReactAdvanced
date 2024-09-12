@@ -24,7 +24,6 @@
   border-radius: 13px;
   background: var(--bg-color);
   transition: 0.3s transform;
-  // transform: scale(0.1);
   max-width: 60%;
 }
 
@@ -40,6 +39,4 @@
 
 .isClosing {
   opacity: 0;
-  // transition: 0.3s transform;
-  // transform: scale(0.2);
 }

@@ -23,6 +23,7 @@ export function createReducerManager(
       if (keysToRemove.length > 0) {
         state = { ...state };
         keysToRemove.forEach((key) => {
+          // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
           delete state[key];
         });
         keysToRemove = [];
@@ -52,6 +53,7 @@ export function createReducerManager(
       }
 
       // Remove it from the reducer mapping
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete reducers[key];
 
       // Add the key to the list of keys to clean up

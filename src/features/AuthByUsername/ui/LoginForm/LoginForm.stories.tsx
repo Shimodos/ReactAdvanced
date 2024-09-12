@@ -37,23 +37,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
 Primary.decorators = [
-  StoreDecorator({
-    loginForm: { username: '123', password: '321' }
-  })
+  StoreDecorator(
+    {
+      loginForm: { username: '123', password: '321' }
+    },
+    {}
+  )
 ];
 
 // Пример с пустыми полями
 export const EmptyForm: Story = {};
 EmptyForm.decorators = [
-  StoreDecorator({
-    loginForm: { username: '', password: '' }
-  })
+  StoreDecorator(
+    {
+      loginForm: { username: '', password: '' }
+    },
+    {}
+  )
 ];
 
 // Пример с ошибкой
 export const WithError: Story = {};
 WithError.decorators = [
-  StoreDecorator({
-    loginForm: { username: '', password: '', error: 'Неверный логин или пароль' }
-  })
+  StoreDecorator(
+    {
+      loginForm: { username: '', password: '', error: 'Неверный логин или пароль' }
+    },
+    {}
+  )
 ];

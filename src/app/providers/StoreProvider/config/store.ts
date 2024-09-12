@@ -5,8 +5,12 @@ import { userReducer } from 'entities/User';
 // import { loginReducer } from 'features/AuthByUsername';
 import { createReducerManager } from './reducerManager';
 
-export function createReduxStore(initialState?: StateSchema): ReturnType<typeof configureStore> {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+): ReturnType<typeof configureStore> {
   const rootReducer: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer
     // loginForm: loginReducer

@@ -24,15 +24,15 @@ type Story = StoryObj<typeof meta> & { theme?: string };
 export const Light: Story = {
   args: {}
 };
-Light.decorators = [StoreDecorator({})];
+Light.decorators = [StoreDecorator({}, {})];
 
 export const Dark: Story = {
   args: {}
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({}, {})];
 
 export const ClearInverted: Story = {
   args: {},
   theme: ThemeButton.CLEAR_INVERTED
 };
-ClearInverted.decorators = [StoreDecorator({})];
+ClearInverted.decorators = [StoreDecorator({}, {})];

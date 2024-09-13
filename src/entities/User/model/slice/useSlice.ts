@@ -5,7 +5,7 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 const initialState: UserSchema = {
   authData: {
-    id: 0,
+    id: '0',
     username: ''
   }
 };

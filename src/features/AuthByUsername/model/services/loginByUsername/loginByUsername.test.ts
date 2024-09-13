@@ -50,6 +50,7 @@ describe('loginByUsername', () => {
 
     expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual({ user: userValue });
@@ -61,6 +62,7 @@ describe('loginByUsername', () => {
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toBe('error');

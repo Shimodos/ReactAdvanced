@@ -43,7 +43,7 @@ describe('loginByUsername', () => {
 
   test('success login', async () => {
     const userValue = { username: '123', id: '1' };
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
+    mockedAxios.post.mockReturnValue(Promise.resolve({ data: { user: userValue } }));
 
     const thunk = new TestAsyncThunk(loginByUsername);
     const result = await thunk.callThunk({ username: '123', password: '123' });
@@ -52,7 +52,7 @@ describe('loginByUsername', () => {
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
-    expect(result.payload).toEqual(userValue);
+    expect(result.payload).toEqual({ user: userValue });
   });
 
   test('error login', async () => {

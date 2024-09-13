@@ -26,7 +26,7 @@ const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
       return response.data;
     } catch (error) {
       console.log('Error: ', error);
-      return thunkAPI.rejectWithValue('Error');
+      return thunkAPI.rejectWithValue('error');
     }
   }
 );

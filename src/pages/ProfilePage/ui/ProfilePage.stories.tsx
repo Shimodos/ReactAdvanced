@@ -9,7 +9,7 @@ const meta = {
   title: 'page/ProfilePage',
   component: ProfilePage,
   parameters: {
-    layout: 'centered'
+    // layout: 'centered'
   },
   tags: ['autodocs'],
   argTypes: {

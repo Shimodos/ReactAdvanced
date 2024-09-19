@@ -9,7 +9,7 @@ const meta = {
   title: 'page/MainPage',
   component: MainPage,
   parameters: {
-    layout: 'centered'
+    // layout: 'centered'
   },
   tags: ['autodocs'],
   argTypes: {

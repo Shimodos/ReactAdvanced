@@ -13,5 +13,7 @@
   "password": "Password",
   "login": "Login",
   "Login form": "Login form",
-  "loginError": "Incorrect username or password"
+  "loginError": "Incorrect username or password",
+  "ProfilePage": "Profile Page",
+  "Profile": "Profile"
 }

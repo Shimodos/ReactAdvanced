@@ -30,5 +30,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "firsr": "Alex",
+    "lastname": "Smith",
+    "age": 25,
+    "currency": "UAH",
+    "country": "Ukraine",
+    "city": "Lviv",
+    "username": "AlexSmith",
+    "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+  }
 }

@@ -11,6 +11,7 @@ export interface DistPath {
 export interface DistEnv {
   mode: DistMode;
   port: number;
+  apiUrl: string;
 }
 
 export interface DistOptions {
@@ -18,4 +19,5 @@ export interface DistOptions {
   paths: DistPath;
   isDev: boolean;
   port: number;
+  apiUrl: string;
 }

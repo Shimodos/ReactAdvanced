@@ -82,6 +82,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off'
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   }
 };

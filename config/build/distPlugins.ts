@@ -4,7 +4,7 @@ import { DistOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export function distConfig({ paths, isDev }: DistOptions): webpack.WebpackPluginInstance[] {
+export function distConfig({ paths, isDev, apiUrl }: DistOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html
@@ -15,7 +15,8 @@ export function distConfig({ paths, isDev }: DistOptions): webpack.WebpackPlugin
       chunkFilename: 'styles/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(isDev)
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl)
     })
   ];
 

@@ -1,0 +1,23 @@
+.ProfileCard {
+  border: 1px solid var(--primary-color);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data {
+  margin-top: 20px;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+.editBtn {
+  margin-left: auto;
+}

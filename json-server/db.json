@@ -31,7 +31,7 @@
     }
   ],
   "profile": {
-    "firsr": "Alex",
+    "first": "Alex",
     "lastname": "Smith",
     "age": 25,
     "currency": "UAH",

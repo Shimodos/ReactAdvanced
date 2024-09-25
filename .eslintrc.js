@@ -79,7 +79,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'no-param-reassign': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-var-requires': 'off'
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/unbound-method': 'off'
   },
   globals: {
     __IS_DEV__: true,

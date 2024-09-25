@@ -14,12 +14,12 @@ const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig
     const { extra, dispatch, rejectWithValue } = thunkAPI;
 
     try {
-      const response = await extra.api.post('/login', authData);
+      const response = await extra.api.post<User>('/login', authData);
       if (!response.data) {
         throw new Error('No data');
       }
 
-      const userData: User = response.data.user;
+      const userData: User = response.data;
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
       dispatch(userActions.setAuthData(userData));

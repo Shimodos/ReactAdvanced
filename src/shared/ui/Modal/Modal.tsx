@@ -1,6 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import classes from './Modal.module.scss';
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  MutableRefObject,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 
@@ -11,12 +18,12 @@ interface ModalProps {
   onClose?: () => void;
   lazy?: boolean;
 }
-export const Modal = (props: ModalProps): JSX.Element => {
+export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>(null);
+  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -61,7 +68,7 @@ export const Modal = (props: ModalProps): JSX.Element => {
     };
   }, [isOpen, onKeydDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [classes.open]: isOpen,
     [classes.isClosing]: isClosing
   };

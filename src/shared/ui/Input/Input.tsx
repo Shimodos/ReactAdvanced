@@ -46,8 +46,9 @@ const Input = memo(function Input(props: InputProps) {
     setIsFocused(true);
   };
 
-  const onSelect = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    setCaretPosition((e.target as HTMLInputElement).selectionStart);
+  const onSelect = (e: React.SyntheticEvent<HTMLInputElement, Event>) => {
+    const target = e.target as HTMLInputElement;
+    setCaretPosition(target.selectionStart || 0);
   };
 
   return (
@@ -67,7 +68,7 @@ const Input = memo(function Input(props: InputProps) {
           // className={className}
         />
 
-        {isFocused && <div className={classes.caret} style={{ left: creatPosition + 'ch' }} />}
+        {isFocused && <div className={classes.caret} style={{ left: `${creatPosition}ch` }} />}
       </div>
     </div>
   );

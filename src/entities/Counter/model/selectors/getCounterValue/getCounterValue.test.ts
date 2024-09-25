@@ -4,7 +4,6 @@
 //   });
 // });
 
-import { DeepPartial } from '@reduxjs/toolkit';
 import { getCounterValue } from './getCounterValue';
 import { StateSchema } from 'app/providers/StoreProvider';
 

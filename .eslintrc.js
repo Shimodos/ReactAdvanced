@@ -80,7 +80,8 @@ module.exports = {
     'no-param-reassign': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/unbound-method': 'off'
+    '@typescript-eslint/unbound-method': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn'
   },
   globals: {
     __IS_DEV__: true,

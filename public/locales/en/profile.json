@@ -2,5 +2,7 @@
   "ProfilePage": "ProfilePage",
   "Edit": "Edit",
   "First name": "First name",
-  "Last name": "Last name"
+  "Last name": "Last name",
+  "Error": "Error occured",
+  "Reload": "Reload page"
 }

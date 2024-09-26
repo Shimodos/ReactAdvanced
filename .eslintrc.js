@@ -81,7 +81,9 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/unbound-method': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn'
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/indent': 'off',
+    'multiline-ternary': 'off'
   },
   globals: {
     __IS_DEV__: true,

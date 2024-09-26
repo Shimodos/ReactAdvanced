@@ -12,6 +12,11 @@
   }
 }
 
+.readonly {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .InputWrapper {
   display: flex;
   flex-direction: column;

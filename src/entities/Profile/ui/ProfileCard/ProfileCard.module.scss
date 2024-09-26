@@ -4,20 +4,21 @@
   border-radius: 8px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.data {
-  margin-top: 20px;
-}
-
 .input {
   margin-bottom: 10px;
 }
 
-.editBtn {
-  margin-left: auto;
+.loafing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
 }

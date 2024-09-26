@@ -3,10 +3,19 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
+import {
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
+  ProfileCard,
+  profileReducer
+} from 'entities/Profile';
 // import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { ProfilePageHeaders } from './ProfilePageHeaders/ProfilePageHeaders';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -18,6 +27,9 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   // const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const data = useSelector(getProfileData);
+  const isLoading = useSelector(getProfileIsLoading);
+  const error = useSelector(getProfileError);
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -26,7 +38,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   return (
     <DynamicModuleLoder reducers={reducers} remmoveAfterUnmount>
       <div className={classNames('', {}, [className])}>
-        <ProfileCard />
+        <ProfilePageHeaders />
+        <ProfileCard data={data} className={className} isLoading={isLoading} error={error} />
       </div>
     </DynamicModuleLoder>
   );

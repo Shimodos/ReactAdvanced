@@ -10,3 +10,4 @@ export { getProfileData } from 'entities/Profile/model/selectors/getProfileData/
 export { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 export { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 export { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
+export { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';

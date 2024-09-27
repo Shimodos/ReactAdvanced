@@ -23,7 +23,7 @@ export const ProfilePageHeaders = ({ className }: ProfilePageHeadersProps) => {
   }, [dispatch]);
 
   const onClear = useCallback(() => {
-    dispatch(profileActions.setReadonly(true));
+    dispatch(profileActions.cancelEdit());
   }, [dispatch]);
 
   return (

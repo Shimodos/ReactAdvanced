@@ -18,6 +18,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeaders } from './ProfilePageHeaders/ProfilePageHeaders';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -52,6 +54,51 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     [dispatch]
   );
 
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      // Проверяем, что введенные данные это только цифры
+      if (!isNaN(Number(value)) && /^\d*$/.test(value || '')) {
+        dispatch(profileActions.updataProfile({ age: Number(value || 0) }));
+      }
+    },
+    [dispatch]
+  );
+
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updataProfile({ city: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updataProfile({ username: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updataProfile({ avatar: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const onChangeCurrency = useCallback(
+    (currency: Currency) => {
+      dispatch(profileActions.updataProfile({ currency }));
+    },
+    [dispatch]
+  );
+
+  const onChangeCountry = useCallback(
+    (country: Country) => {
+      dispatch(profileActions.updataProfile({ country }));
+    },
+    [dispatch]
+  );
+
   return (
     <DynamicModuleLoder reducers={reducers} remmoveAfterUnmount>
       <div className={classNames('', {}, [className])}>
@@ -63,6 +110,12 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           error={error}
           onChangeFirstName={onChangeFirstName}
           onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
           readonly={readonly}
         />
       </div>

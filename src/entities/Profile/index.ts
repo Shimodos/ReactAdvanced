@@ -11,3 +11,4 @@ export { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfile
 export { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 export { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 export { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
+export { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData';

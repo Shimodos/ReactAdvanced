@@ -12,3 +12,4 @@ export { getProfileError } from 'entities/Profile/model/selectors/getProfileErro
 export { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 export { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 export { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData';
+export { getProfileValidateError } from 'entities/Profile/model/selectors/getProfileValidateError/getProfileValidateError';

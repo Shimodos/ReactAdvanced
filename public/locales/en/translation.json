@@ -15,5 +15,10 @@
   "Login form": "Login form",
   "loginError": "Incorrect username or password",
   "ProfilePage": "Profile Page",
-  "Profile": "Profile"
+  "Profile": "Profile",
+  "Incorrect user data": "Incorrect user data",
+  "Age is required": "Age is required",
+  "Country is required": "Country is required",
+  "No data": "No data",
+  "Server error": "Server error"
 }

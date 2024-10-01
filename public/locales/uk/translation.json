@@ -15,5 +15,10 @@
   "Login form": "Форма входу",
   "loginError": "Неправильне ім'я користувача або пароль",
   "ProfilePage": "Сторінка профілю",
-  "Profile": "Профіль"
+  "Profile": "Профіль",
+  "Incorrect user data": "Неправильні дані користувача",
+  "Age is required": "Вік обов'язковий",
+  "Country is required": "Країна обов'язкова",
+  "No data": "Немає даних",
+  "Server error": "Помилка сервера"
 }

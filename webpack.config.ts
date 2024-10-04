@@ -22,7 +22,8 @@ export default (env: DistEnv): webpack.Configuration => {
     paths,
     isDev,
     port: PORT,
-    apiUrl
+    apiUrl,
+    project: 'frontend'
   });
   return config;
 };

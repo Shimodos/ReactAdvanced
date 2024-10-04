@@ -24,10 +24,47 @@ export const Light: Story = {
   args: {}
 };
 
-Light.decorators = [StoreDecorator({}, {})];
+Light.decorators = [
+  StoreDecorator(
+    {
+      profile: {
+        form: {
+          first: 'John',
+          lastname: 'Doe',
+          age: 30,
+          city: 'New York',
+          username: 'johndoe',
+          avatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
+          // currency: Currency.USD,
+          // country: Country.Ukraine
+        }
+      }
+    },
+    {}
+  )
+];
 
 export const Dark: Story = {
   args: {}
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({}, {})];
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator(
+    {
+      profile: {
+        form: {
+          first: 'John',
+          lastname: 'Doe',
+          age: 30,
+          city: 'New York',
+          username: 'johndoe',
+          avatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
+          // currency: Currency.USD,
+          // country: Country.Ukraine
+        }
+      }
+    },
+    {}
+  )
+];

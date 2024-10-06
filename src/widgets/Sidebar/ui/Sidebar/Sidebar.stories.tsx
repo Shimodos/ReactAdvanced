@@ -3,6 +3,7 @@ import '../../../../app/styles/index.scss';
 import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Sidebar } from './Sidebar';
+import { StoreDecorator } from 'shared/consfig/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
   title: 'widget/Sidebar',
@@ -23,8 +24,40 @@ export const Light: Story = {
   args: {}
 };
 
+Light.decorators = [
+  ThemeDecorator(Theme.LIGHT),
+  StoreDecorator(
+    {
+      user: { authData: {} }
+    },
+    {}
+  )
+];
+
 export const Dark: Story = {
   args: {}
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator(
+    {
+      user: { authData: {} }
+    },
+    {}
+  )
+];
+
+export const NoAuth: Story = {
+  args: {}
+};
+
+NoAuth.decorators = [
+  ThemeDecorator(Theme.LIGHT),
+  StoreDecorator(
+    {
+      user: {}
+    },
+    {}
+  )
+];

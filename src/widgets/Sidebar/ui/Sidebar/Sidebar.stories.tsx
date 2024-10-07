@@ -14,6 +14,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     // backgroundColor: { control: 'color' }
+    // value: { control: 'text' }
   }
 } satisfies Meta<typeof Sidebar>;
 

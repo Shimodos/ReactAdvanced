@@ -5,7 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundePage';
 import { RouteProps } from 'react-router-dom';
 import { ProfilePage } from 'pages/ProfilePage';
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
 };
 

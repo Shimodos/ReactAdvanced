@@ -14,7 +14,8 @@ export function distWebpackConfig(options: DistOptions): webpack.Configuration {
     output: {
       filename: '[name].[contenthash].js',
       path: paths.dist,
-      clean: true
+      clean: true,
+      publicPath: '/'
     },
     plugins: distConfig(options),
     module: {

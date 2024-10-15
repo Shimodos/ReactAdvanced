@@ -83,7 +83,8 @@ module.exports = {
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/indent': 'off',
-    'multiline-ternary': 'off'
+    'multiline-ternary': 'off',
+    'declaration-colon-newline-after': 'off'
   },
   globals: {
     __IS_DEV__: true,

@@ -1,5 +1,7 @@
 {
   "ArticlePage": " Сторінка статті",
   "ArticleDetailsPage": " Сторінка деталей статті",
-  "Articles": " Статті"
+  "Articles": " Статті",
+  "ArtcicleNotFound": " Стаття не знайдена",
+  "ArticleDetailsErrorTitle": " Помилка деталей статті"
 }

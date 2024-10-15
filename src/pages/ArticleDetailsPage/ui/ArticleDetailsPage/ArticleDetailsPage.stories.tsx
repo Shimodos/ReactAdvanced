@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../../app/styles/index.scss';
+import '../../../../app/styles/index.scss';
 import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta = {
-  title: 'page/ProfilePage',
+  title: 'page/ArticleDetailsPage',
   component: ArticleDetailsPage,
   parameters: {
     // layout: 'centered'

@@ -1,5 +1,7 @@
 {
   "ArticlePage": "Article Page",
   "ArticleDetailsPage": "Article Detail Page",
-  "Articles": "Articles"
+  "Articles": "Articles",
+  "ArtcicleNotFound": "Article not found",
+  "ArticleDetailsErrorTitle": "Article Details Error"
 }

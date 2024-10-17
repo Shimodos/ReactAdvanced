@@ -17,3 +17,18 @@
 .sceleton {
   margin-top: 15px;
 }
+
+.articleInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: start;
+  margin-top: 10px;
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

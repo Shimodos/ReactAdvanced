@@ -21,5 +21,6 @@
   "Age is required": "Вік обов'язковий",
   "Country is required": "Країна обов'язкова",
   "No data": "Немає даних",
-  "Server error": "Помилка сервера"
+  "Server error": "Помилка сервера",
+  "Copy": "Копіювати"
 }

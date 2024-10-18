@@ -21,5 +21,6 @@
   "Age is required": "Age is required",
   "Country is required": "Country is required",
   "No data": "No data",
-  "Server error": "Server error"
+  "Server error": "Server error",
+  "Copy": "Copy"
 }

@@ -5,8 +5,10 @@
 
   &:hover {
     opacity: 0.8;
-    background: var(--secondary-color);
-    color: var(--inverted-primary-color);
+    fill-opacity: 0.8;
+    stroke-opacity: 0.8;
+    // background: var(--secondary-color);
+    // color: var(--inverted-primary-color);
   }
 }
 

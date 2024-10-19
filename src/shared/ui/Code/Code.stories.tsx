@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children:
+    text:
       'export default {\n' +
       "    title: 'shared/Code',\n" +
       '    component: Code,\n' +

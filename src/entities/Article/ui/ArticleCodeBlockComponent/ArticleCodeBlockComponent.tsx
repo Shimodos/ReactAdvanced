@@ -10,7 +10,7 @@ interface ArticleCodeBlockComponentProps {
 export const ArticleCodeBlockComponent = ({ className, block }: ArticleCodeBlockComponentProps) => {
   return (
     <div className={classNames(classes.ArticleCodeBlockComponent, {}, [className])}>
-      <Code>{block.code}</Code>
+      <Code text={block.code} />
     </div>
   );
 };

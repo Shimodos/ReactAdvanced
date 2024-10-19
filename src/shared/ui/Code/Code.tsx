@@ -1,20 +1,24 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './Code.module.scss';
-import React, { ReactNode } from 'react';
-import { Button } from '../Button/Button';
-import { useTranslation } from 'react-i18next';
+import React, { useCallback } from 'react';
+import { Button, ThemeButton } from '../Button/Button';
+import CopyIcon from 'shared/assets/icons/copy-20-20.svg';
 
 interface CodeProps {
   className?: string;
-  children: ReactNode;
+  text: string;
 }
-export const Code = ({ className, children }: CodeProps) => {
-  const { t } = useTranslation();
+export const Code = ({ className, text }: CodeProps) => {
+  const onCopy = useCallback(() => {
+    navigator.clipboard.writeText(text);
+  }, [text]);
 
   return (
     <pre className={classNames(classes.Code, {}, [className])}>
-      <Button className={classes.copyBtn}>{t('Copy')}</Button>
-      <code>{children}</code>
+      <Button className={classes.copyBtn} theme={ThemeButton.CLEAR} onClick={onCopy}>
+        <CopyIcon className={classes.copyIcon} />
+      </Button>
+      <code>{text}</code>
     </pre>
   );
 };

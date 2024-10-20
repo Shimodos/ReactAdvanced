@@ -90,7 +90,6 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
           <Icon Svg={EyeIcon} />
           <Text title={String(article?.views)} size={TextSize.M} />
         </div>
-
         <div className={classes.articleInfo}>
           <Icon Svg={CalendarIcon} />
           <Text title={article?.createdAt} />

@@ -3,6 +3,8 @@ import classes from './ArticleDetailsPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+import { CommetnList } from 'entities/Comment';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -19,6 +21,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
+      <Text size={TextSize.M} title={t('Comments')} />
+      <CommetnList />
     </div>
   );
 };

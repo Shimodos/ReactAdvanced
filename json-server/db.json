@@ -112,13 +112,15 @@
       "id": "1",
       "username": "test_wobble@ukr.net",
       "password": "Qsz1Wdx2",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://www.w3schools.com/w3images/avatar1.png"
     },
     {
       "id": "2",
       "username": "admin",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://www.w3schools.com/w3images/avatar3.png"
     }
   ],
   "profile": {

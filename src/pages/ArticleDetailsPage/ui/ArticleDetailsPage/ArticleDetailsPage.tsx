@@ -22,7 +22,28 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
       <Text size={TextSize.M} title={t('Comments')} />
-      <CommetnList />
+      <CommetnList
+        comments={[
+          {
+            id: '1',
+            text: 'Comment 1',
+            user: {
+              id: '1',
+              username: 'User 1'
+              // avatar: 'https://www.w3schools.com/howto/img_avatar.png'
+            }
+          },
+          {
+            id: '1',
+            text: 'Comment 1',
+            user: {
+              id: '1',
+              username: 'User 1',
+              avatar: 'https://www.w3schools.com/howto/img_avatar.png'
+            }
+          }
+        ]}
+      />
     </div>
   );
 };

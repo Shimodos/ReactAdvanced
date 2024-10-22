@@ -17,7 +17,12 @@ export const CommetnList = (props: CommetnListProps) => {
     <div className={classNames(classes.CommetnList, {}, [className])}>
       {comments?.length ? (
         comments.map((comment) => (
-          <CommentcCard className={classes.comment} key={comment.id} comment={comment} />
+          <CommentcCard
+            isLoading={isLoading}
+            className={classes.comment}
+            key={comment.id}
+            comment={comment}
+          />
         ))
       ) : (
         <Text text={t('no comments')} />

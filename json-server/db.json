@@ -96,13 +96,13 @@
     },
     {
       "id": "2",
-      "text": "some comment 1",
+      "text": "impsum dolor sit amet 2 ",
       "articleId": 1,
       "userId": "2"
     },
     {
       "id": "3",
-      "text": "some comment 2",
+      "text": "some comment Lotrem ipsum dolor sit amet 3",
       "articleId": 1,
       "userId": "1"
     }

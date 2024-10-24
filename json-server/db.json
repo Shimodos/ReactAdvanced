@@ -123,14 +123,28 @@
       "avatar": "https://www.w3schools.com/w3images/avatar3.png"
     }
   ],
-  "profile": {
-    "first": "12334",
-    "lastname": "Smsdsds",
-    "age": 1,
-    "currency": "USD",
-    "country": "France",
-    "city": "Lvsdsdd",
-    "username": "Alex",
-    "avatar": "https://www.w3schools.com/w3images/avatar2.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "12334",
+      "lastname": "Smsdsds",
+      "age": 1,
+      "currency": "USD",
+      "country": "France",
+      "city": "Lvsdsdd",
+      "username": "Alex",
+      "avatar": "https://www.w3schools.com/w3images/avatar2.png"
+    },
+    {
+      "id": "2",
+      "first": "Olga",
+      "lastname": "Prokopenko",
+      "age": 1,
+      "currency": "USD",
+      "country": "France",
+      "city": "Lvsdsdd",
+      "username": "Olga",
+      "avatar": "https://www.w3schools.com/w3images/avatar1.png"
+    }
+  ]
 }

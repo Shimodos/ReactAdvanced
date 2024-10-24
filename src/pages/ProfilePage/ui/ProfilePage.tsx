@@ -23,6 +23,8 @@ import { Country } from 'entities/Country';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { validateProfileDataError } from 'entities/Profile/model/type/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -39,6 +41,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateError = useSelector(getProfileValidateError);
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslate = {
     [validateProfileDataError.INCORRECT_USER_DATA]: t('Incorrect user data'),
@@ -48,11 +51,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     [validateProfileDataError.SERVER_ERROR]: t('Server error')
   };
 
-  useEffect(() => {
+  useInitialEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+      if (id) {
+        dispatch(fetchProfileData(id));
+      }
     }
-  }, [dispatch]);
+  });
 
   const onChangeFirstName = useCallback(
     (value?: string) => {

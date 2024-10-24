@@ -4,6 +4,8 @@ import { Comment } from '../../models/type/comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
 
 interface CommentcCardProps {
   className?: string;
@@ -28,10 +30,10 @@ export const CommentcCard = (props: CommentcCardProps) => {
 
   return (
     <div className={classNames(classes.CommentcCard, {}, [className])}>
-      <div className={classes.header}>
+      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={classes.header}>
         {comment.user.avatar ? <Avatar size={40} src={comment.user.avatar} /> : null}
         <Text title={comment.user.username} />
-      </div>
+      </AppLink>
       <Text className={classes.text} text={comment.text} />
     </div>
   );

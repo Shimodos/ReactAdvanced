@@ -20,6 +20,7 @@ import {
 } from 'pages/ArticleDetailsPage/model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/addCommentForm';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -50,6 +51,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text size={TextSize.M} title={t('Comments')} />
+        <AddCommentForm />
         <CommetnList isLoading={commentIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoder>

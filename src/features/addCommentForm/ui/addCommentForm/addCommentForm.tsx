@@ -15,6 +15,7 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
+import { send } from 'process';
 
 interface AddCommentFormProps {
   className?: string;
@@ -35,17 +36,24 @@ const AddCommentForm = ({ className }: AddCommentFormProps) => {
     [dispatch]
   );
 
+  const onComentsendChange = useCallback(() => {
+    dispatch();
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoder reducers={reducers}>
       <div className={classNames(classes.addCommentForm, {}, [className])}>
         <Input
+          className={classNames(classes.addCommentFormInput)}
           placeholder={t('Enter your comment')}
           type="text"
           value={text}
           onChange={onCommentTextChange}
           // error={error}
         />
-        <Button theme={ThemeButton.OUTLINE}>{t('Add comment')}</Button>
+        <Button theme={ThemeButton.OUTLINE} onClick={onComentsendChange}>
+          {t('Add comment')}
+        </Button>
       </div>
     </DynamicModuleLoder>
   );

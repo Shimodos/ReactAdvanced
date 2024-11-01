@@ -4,10 +4,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import {
-  getAddCommentFormError,
-  getAddCommentFormText
-} from 'features/addCommentForm/model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from 'features/addCommentForm/model/selectors/addCommentFormSelectors';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions, addCommentFormReducer } from 'features/addCommentForm';
@@ -15,19 +12,18 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import { send } from 'process';
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
   className?: string;
+  onSendComment?: (text: string) => void;
 }
 
 const reducers: ReducersList = { AddCommentForm: addCommentFormReducer };
 
-const AddCommentForm = ({ className }: AddCommentFormProps) => {
+const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
   const { t } = useTranslation();
   const text = useSelector(getAddCommentFormText);
   const dispatch = useAppDispatch();
-  const error = useSelector(getAddCommentFormError);
 
   const onCommentTextChange = useCallback(
     (value: string) => {
@@ -36,9 +32,10 @@ const AddCommentForm = ({ className }: AddCommentFormProps) => {
     [dispatch]
   );
 
-  const onComentsendChange = useCallback(() => {
-    dispatch();
-  }, [dispatch]);
+  const onSendHandler = useCallback(() => {
+    onSendComment?.(text || '');
+    onCommentTextChange('');
+  }, [onSendComment, text, onCommentTextChange]);
 
   return (
     <DynamicModuleLoder reducers={reducers}>
@@ -51,7 +48,7 @@ const AddCommentForm = ({ className }: AddCommentFormProps) => {
           onChange={onCommentTextChange}
           // error={error}
         />
-        <Button theme={ThemeButton.OUTLINE} onClick={onComentsendChange}>
+        <Button theme={ThemeButton.OUTLINE} onClick={onSendHandler}>
           {t('Add comment')}
         </Button>
       </div>

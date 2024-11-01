@@ -12,7 +12,8 @@ const data = {
   lastname: 'ulbi tv',
   first: 'asd',
   city: 'asf',
-  currency: Currency.USD
+  currency: Currency.USD,
+  id: 1
 };
 
 describe('loginByUsername', () => {

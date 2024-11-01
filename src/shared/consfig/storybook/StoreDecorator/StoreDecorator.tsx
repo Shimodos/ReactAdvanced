@@ -4,10 +4,16 @@ import { StoryFn } from '@storybook/react';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
+import { articleDetailsReducer } from 'entities/Article/models/slice/articleDetailsSlice';
+import { addCommentFormReducer } from 'features/addCommentForm';
+import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  articleDetails: articleDetailsReducer,
+  AddCommentForm: addCommentFormReducer,
+  articleDetailsComments: articleDetailsCommentsReducer
 };
 
 export const StoreDecorator = (

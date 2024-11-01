@@ -24,7 +24,10 @@
       "img": "https://www.w3schools.com/w3images/avatar2.png",
       "views": 1234,
       "createdAt": "2021-09-01T00:00:00.000Z",
-      "type": ["js", "news"],
+      "type": [
+        "js",
+        "news"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -105,6 +108,54 @@
       "text": "some comment Lotrem ipsum dolor sit amet 3",
       "articleId": 1,
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ddsdsd",
+      "id": "emg76a1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ddsdsd",
+      "id": "qEfYD8I"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Привет, новый коментарий",
+      "id": "ERt6XBE"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fghjfvhjvbhj",
+      "id": "B4sNVml"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "gffghfhg",
+      "id": "7agWi6F"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "tgygy",
+      "id": "kg57rlC"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "lklmlm",
+      "id": "TyPhThp"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "6565",
+      "id": "48Og15Q"
     }
   ],
   "users": [
@@ -126,7 +177,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "12334",
+      "first": "12",
       "lastname": "Smsdsds",
       "age": 1,
       "currency": "USD",

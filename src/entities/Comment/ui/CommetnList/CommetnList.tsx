@@ -13,6 +13,17 @@ interface CommetnListProps {
 export const CommetnList = (props: CommetnListProps) => {
   const { className, comments, isLoading } = props;
   const { t } = useTranslation();
+
+  if (isLoading) {
+    return (
+      <div className={classNames(classes.CommetnList, {}, [className])}>
+        <CommentcCard isLoading />
+        <CommentcCard isLoading />
+        <CommentcCard isLoading />
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(classes.CommetnList, {}, [className])}>
       {comments?.length ? (

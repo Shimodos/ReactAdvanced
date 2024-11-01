@@ -20,7 +20,7 @@ export const updateProfileData = createAsyncThunk<
   }
 
   try {
-    const response = await extra.api.put<Profile>('/profile', forData);
+    const response = await extra.api.put<Profile>(`/profile/${forData.id}`, forData);
 
     if (!response.data) {
       throw new Error('No data');

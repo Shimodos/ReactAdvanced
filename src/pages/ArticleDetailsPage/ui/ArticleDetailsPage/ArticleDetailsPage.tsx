@@ -14,13 +14,12 @@ import {
   getArticleComments
 } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getArticleCommentsError,
-  getArticleCommentsIsLoading
-} from 'pages/ArticleDetailsPage/model/selectors/comments';
+import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/addCommentForm';
+import { useCallback } from 'react';
+import addCommentForArticle from 'pages/ArticleDetailsPage/model/services/sendCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -32,7 +31,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const dispatch = useDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentIsLoading = useSelector(getArticleCommentsIsLoading);
-  const error = useSelector(getArticleCommentsError);
+
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -51,7 +56,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text size={TextSize.M} title={t('Comments')} />
-        <AddCommentForm />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommetnList isLoading={commentIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoder>
@@ -59,6 +64,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 };
 
 export default ArticleDetailsPage;
-function dispatch(arg0: any) {
-  throw new Error('Function not implemented.');
-}
+// function dispatch(arg0: any) {
+//   throw new Error('Function not implemented.');
+// }

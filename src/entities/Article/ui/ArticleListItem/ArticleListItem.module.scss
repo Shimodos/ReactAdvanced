@@ -1,29 +1,41 @@
 .GRID {
   width: 230px;
+  transition: all 0.3s;
+  cursor: pointer;
+
   .ArticleListItem {
-  }
-
-  .card {
-    padding: 15px;
-    border-radius: 12px;
-    background: var(--card-bg);
-  }
-
-  .imageWrapper {
-    width: 100%;
-  }
-
-  .img {
-    width: 200px;
-    height: 200px;
-    border-radius: 12px;
-    position: relative;
+    cursor: pointer;
   }
 
   .date {
     position: absolute;
     right: 0;
     top: 0;
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+
+    .date {
+      display: block;
+    }
+  }
+
+  .views {
+    margin-left: auto;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
   }
 
   .infoWrapper {
@@ -37,10 +49,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .views {
-    margin-left: auto;
   }
 
   .title p {

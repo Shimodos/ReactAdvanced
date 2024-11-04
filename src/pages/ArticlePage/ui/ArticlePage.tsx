@@ -82,7 +82,14 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article');
   return (
     <div className={classNames(classes.ArticlePage, {}, [className])}>
-      <ArticleList articcle={[article]} isLoading />
+      <ArticleList
+        articcle={new Array(10).fill(0).map((_, i) => ({
+          ...article,
+          id: i.toString(),
+          title: `${article.title} ${i}`
+        }))}
+        isLoading
+      />
     </div>
   );
 };

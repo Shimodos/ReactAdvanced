@@ -4,6 +4,7 @@ import { Article, ArticleVirw } from 'entities/Article/models/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { Card } from 'shared/ui/Card/Card';
 
 interface ArticleListItemProps {
   className?: string;
@@ -24,7 +25,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     <div
       className={classNames(classes.ArticleListItem, {}, [className, view ? classes[view] : ''])}
     >
-      <div className={classes.card}>
+      <Card className={classes.card}>
         <div className={classes.imageWrapper}>
           <img src={article.img} alt={article.title} className={classes.img} />
           <Text text={article.createdAt} className={classes.date} />
@@ -35,7 +36,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           <Icon Svg={EyeIcon} />
         </div>
         <Text text={article.title} className={classes.title} />
-      </div>
+      </Card>
     </div>
   );
 };

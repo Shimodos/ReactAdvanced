@@ -15,7 +15,7 @@ export const ArticleList = (props: ArticleListProps) => {
   // const { t } = useTranslation();
 
   const renderArtcilce = (article: Article) => {
-    return <ArticleListItem article={article} view={view} />;
+    return <ArticleListItem article={article} view={view} className={classes.card} />;
   };
 
   return (

@@ -32,6 +32,11 @@ export enum ArticleType {
   SCIENCE = 'SCIENCE'
 }
 
+export enum ArticleVirw {
+  GRID = 'GRID',
+  LIST = 'LIST'
+}
+
 export interface Article {
   id: string;
   title: string;

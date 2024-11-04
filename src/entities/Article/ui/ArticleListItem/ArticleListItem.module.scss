@@ -1,0 +1,58 @@
+.GRID {
+  width: 230px;
+  .ArticleListItem {
+  }
+
+  .card {
+    padding: 15px;
+    border-radius: 12px;
+    background: var(--card-bg);
+  }
+
+  .imageWrapper {
+    width: 100%;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .date {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .views {
+    margin-left: auto;
+  }
+
+  .title p {
+    width: 200px;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.LIST {
+}

@@ -1,10 +1,23 @@
-.ArticleList {
+// .ArticleList {
+//   display: flex;
+//   flex-wrap: wrap;
+//   // gap: 16px;
+// }
+
+.GRID {
   display: flex;
   flex-wrap: wrap;
-  // gap: 16px;
+
+  .card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
 }
 
-.card {
-  margin-right: 30px;
-  margin-bottom: 30px;
+.LIST {
+  width: 100%;
+
+  .card {
+    margin-bottom: 30px;
+  }
 }

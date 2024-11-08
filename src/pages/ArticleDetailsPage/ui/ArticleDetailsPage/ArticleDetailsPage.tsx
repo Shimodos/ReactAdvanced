@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './ArticleDetailsPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { CommetnList } from 'entities/Comment';
 import {
@@ -20,6 +20,8 @@ import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/service
 import { AddCommentForm } from 'features/addCommentForm';
 import { useCallback } from 'react';
 import addCommentForArticle from 'pages/ArticleDetailsPage/model/services/sendCommentForArticle/addCommentForArticle';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -31,6 +33,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const dispatch = useDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentIsLoading = useSelector(getArticleCommentsIsLoading);
+  const navigate = useNavigate();
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -38,6 +41,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     },
     [dispatch]
   );
+
+  const onBack = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -54,6 +61,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoder reducers={reducers} remmoveAfterUnmount>
       <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+        <Button theme={ThemeButton.OUTLINE} className={classes.buttonBack} onClick={onBack}>
+          {t('Back')}
+        </Button>
         <ArticleDetails id={id} />
         <Text size={TextSize.M} title={t('Comments')} />
         <AddCommentForm onSendComment={onSendComment} />

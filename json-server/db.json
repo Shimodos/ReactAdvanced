@@ -23,11 +23,9 @@
       "subtitle": "Whot is new in js world",
       "img": "https://www.w3schools.com/w3images/avatar2.png",
       "views": 1234,
-      "createdAt": "2021-09-01T00:00:00.000Z",
-      "type": [
-        "js",
-        "news"
-      ],
+      "createdAt": "2021-09-01",
+      "userId": "1",
+      "type": ["js", "news"],
       "blocks": [
         {
           "id": "1",

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './ArticlePage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { Article } from 'entities/Article';
+import { Article, ArticleVirw } from 'entities/Article';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -14,7 +14,12 @@ const article = {
   subtitle: 'Whot is new in js world',
   img: 'https://www.w3schools.com/w3images/avatar2.png',
   views: 1234,
-  createdAt: '2021-09-01T00:00:00.000Z',
+  createdAt: '2021-09-01',
+  user: {
+    id: '1',
+    username: 'John Doe',
+    avatar: 'https://www.w3schools.com/w3images/avatar2.png'
+  },
   type: ['js', 'news'],
   blocks: [
     {
@@ -83,6 +88,7 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <div className={classNames(classes.ArticlePage, {}, [className])}>
       <ArticleList
+        view={ArticleVirw.LIST}
         articcle={new Array(10).fill(0).map((_, i) => ({
           ...article,
           id: i.toString(),

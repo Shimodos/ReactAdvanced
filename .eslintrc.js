@@ -84,7 +84,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/indent': 'off',
     'multiline-ternary': 'off',
-    'declaration-colon-newline-after': 'off'
+    'declaration-colon-newline-after': 'off',
+    '@typescript-eslint/consistent-type-exports': 'off'
   },
   globals: {
     __IS_DEV__: true,

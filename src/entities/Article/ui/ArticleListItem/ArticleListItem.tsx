@@ -4,7 +4,7 @@ import {
   Article,
   ArticleBlockType,
   ArticleTextBlock,
-  ArticleVirw
+  ArticleView
 } from 'entities/Article/models/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -21,7 +21,7 @@ import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
 interface ArticleListItemProps {
   className?: string;
   article: Article;
-  view?: ArticleVirw;
+  view?: ArticleView;
 }
 export const ArticleListItem = (props: ArticleListItemProps) => {
   const { className, article, view } = props;
@@ -35,7 +35,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   const types = <Text text={article.type.join(', ')} className={classes.types} />;
   const views = <Text text={article.views.toString()} className={classes.views} />;
 
-  if (view === ArticleVirw.LIST) {
+  if (view === ArticleView.LIST) {
     const textBlocks = article.blocks.find(
       (block) => block.type === ArticleBlockType.TEXT
     ) as ArticleTextBlock;

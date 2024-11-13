@@ -34,7 +34,7 @@ export enum ArticleType {
   SCIENCE = 'SCIENCE'
 }
 
-export enum ArticleVirw {
+export enum ArticleView {
   GRID = 'GRID',
   LIST = 'LIST'
 }

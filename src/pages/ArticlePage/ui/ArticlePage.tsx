@@ -2,101 +2,48 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './ArticlePage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { Article, ArticleVirw } from 'entities/Article';
+import { ArticleView } from 'entities/Article';
+import {
+  DynamicModuleLoder,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
+import { articlePageReducer, getArticle } from '../model/slices/ArticlePageSlice';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+import {
+  getArticlePageError,
+  getArticlePageIsLoading,
+  getArticlePageView
+} from '../model/selectors/articlePageSelectors';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
-const article = {
-  id: '1',
-  title: 'Whot is new',
-  subtitle: 'Whot is new in js world',
-  img: 'https://www.w3schools.com/w3images/avatar2.png',
-  views: 1234,
-  createdAt: '2021-09-01',
-  user: {
-    id: '1',
-    username: 'John Doe',
-    avatar: 'https://www.w3schools.com/w3images/avatar2.png'
-  },
-  type: ['js', 'news'],
-  blocks: [
-    {
-      id: '1',
-      type: 'TEXT',
-      title: 'Заголовок этого блока',
-      paragraphs: [
-        'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-        'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
-        'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:'
-      ]
-    },
-    {
-      id: '4',
-      type: 'CODE',
-      code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
-    },
-    {
-      id: '5',
-      type: 'TEXT',
-      title: 'Программа, которую по традиции называют «Hello, world!»',
-      paragraphs: [
-        'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-        'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:'
-      ]
-    },
-    {
-      id: '2',
-      type: 'IMAGE',
-      src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-      title: 'Рисунок 1 - скриншот сайта'
-    },
-    {
-      id: '3',
-      type: 'CODE',
-      code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
-    },
-    {
-      id: '7',
-      type: 'TEXT',
-      title: 'JavaScript — это язык, программы',
-      paragraphs: [
-        'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
-        'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:'
-      ]
-    },
-    {
-      id: '8',
-      type: 'IMAGE',
-      src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-      title: 'Рисунок 1 - скриншот сайта'
-    },
-    {
-      id: '9',
-      type: 'TEXT',
-      title: 'Заголовок этого блока',
-      paragraphs: [
-        'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.'
-      ]
-    }
-  ]
-} as unknown as Article;
+const reducers: ReducersList = {
+  articlePage: articlePageReducer
+};
 
 const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article');
+  const dispatch = useAppDispatch();
+  const articles = useSelector(getArticle.selectAll);
+  const isLoading = useSelector(getArticlePageIsLoading);
+  const error = useSelector(getArticlePageError);
+  const view = useSelector(getArticlePageView);
+
+  useInitialEffect(() => {
+    dispatch(fetchArticleList());
+  });
+
   return (
-    <div className={classNames(classes.ArticlePage, {}, [className])}>
-      <ArticleList
-        view={ArticleVirw.LIST}
-        articcle={new Array(10).fill(0).map((_, i) => ({
-          ...article,
-          id: i.toString(),
-          title: `${article.title} ${i}`
-        }))}
-        isLoading
-      />
-    </div>
+    <DynamicModuleLoder reducers={reducers}>
+      <div className={classNames(classes.ArticlePage, {}, [className])}>
+        <ArticleList isLoading={isLoading} view={view} articcle={articles} />
+      </div>
+    </DynamicModuleLoder>
   );
 };
 

@@ -2,12 +2,16 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './ArticlePage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { ArticleView } from 'entities/Article';
+import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import { articlePageReducer, getArticle } from '../model/slices/ArticlePageSlice';
+import {
+  articlePageReducer,
+  articlesPageActions,
+  getArticle
+} from '../model/slices/ArticlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -17,6 +21,7 @@ import {
   getArticlePageIsLoading,
   getArticlePageView
 } from '../model/selectors/articlePageSelectors';
+import { useCallback } from 'react';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -34,13 +39,22 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
 
+  const onChangeView = useCallback(
+    (view: ArticleView) => {
+      dispatch(articlesPageActions.setView(view));
+    },
+    [dispatch]
+  );
+
   useInitialEffect(() => {
     dispatch(fetchArticleList());
+    dispatch(articlesPageActions.initState());
   });
 
   return (
     <DynamicModuleLoder reducers={reducers}>
       <div className={classNames(classes.ArticlePage, {}, [className])}>
+        <ArticleViewSelector view={view} onChangeView={onChangeView} />
         <ArticleList isLoading={isLoading} view={view} articcle={articles} />
       </div>
     </DynamicModuleLoder>

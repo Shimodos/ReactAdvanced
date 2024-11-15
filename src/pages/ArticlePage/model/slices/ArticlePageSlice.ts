@@ -4,6 +4,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { ArticlePageSchema } from '../types/ArticlePageSchema';
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
+import { ARTICLE_VIEV_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
 });
@@ -25,6 +26,11 @@ const articlePageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
+      localStorage.setItem(ARTICLE_VIEV_LOCALSTORAGE_KEY, action.payload);
+    },
+    initState: (state) => {
+      state.view =
+        (localStorage.getItem(ARTICLE_VIEV_LOCALSTORAGE_KEY) as ArticleView) || ArticleView.GRID;
     }
   },
   extraReducers: (builder) => {

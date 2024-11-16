@@ -47,8 +47,12 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   );
 
   useInitialEffect(() => {
-    dispatch(fetchArticleList());
     dispatch(articlesPageActions.initState());
+    dispatch(
+      fetchArticleList({
+        page: 1
+      })
+    );
   });
 
   return (

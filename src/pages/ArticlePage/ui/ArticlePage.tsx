@@ -22,6 +22,7 @@ import {
   getArticlePageView
 } from '../model/selectors/articlePageSelectors';
 import { useCallback } from 'react';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -57,10 +58,10 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoder reducers={reducers}>
-      <div className={classNames(classes.ArticlePage, {}, [className])}>
+      <Page className={classNames(classes.ArticlePage, {}, [className])}>
         <ArticleViewSelector view={view} onChangeView={onChangeView} />
         <ArticleList isLoading={isLoading} view={view} articcle={articles} />
-      </div>
+      </Page>
     </DynamicModuleLoder>
   );
 };

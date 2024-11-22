@@ -22,6 +22,7 @@ import { useCallback } from 'react';
 import addCommentForArticle from 'pages/ArticleDetailsPage/model/services/sendCommentForArticle/addCommentForArticle';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -51,7 +52,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   });
 
   if (!id) {
-    return <div>{t('ArtcicleNotFound')}</div>;
+    return <Page>{t('ArtcicleNotFound')}</Page>;
   }
 
   const reducers: ReducersList = {
@@ -60,7 +61,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoder reducers={reducers} remmoveAfterUnmount>
-      <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+      <Page>
         <Button theme={ThemeButton.OUTLINE} className={classes.buttonBack} onClick={onBack}>
           {t('Back')}
         </Button>
@@ -68,7 +69,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         <Text size={TextSize.M} title={t('Comments')} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommetnList isLoading={commentIsLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoder>
   );
 };

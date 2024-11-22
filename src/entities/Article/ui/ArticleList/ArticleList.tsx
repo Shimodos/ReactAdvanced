@@ -14,7 +14,7 @@ interface ArticleListProps {
 
 export const ArticleList = (props: ArticleListProps) => {
   const { className, articcle, isLoading, view = ArticleView.GRID } = props;
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   if (isLoading) {
     return (

@@ -1,26 +1,32 @@
 import { MutableRefObject, useEffect, useRef } from 'react';
 
 export interface InfiniteScrollProps {
-  callback: () => void;
+  callback?: () => void;
   triggerRef: MutableRefObject<HTMLElement>;
   wrapperRef: MutableRefObject<HTMLElement>;
 }
 
 export function useInfiniteScroll({ triggerRef, callback, wrapperRef }: InfiniteScrollProps) {
-  const observer = useRef<IntersectionObserver | null>(null);
+  const observer: IntersectionObserver | null = null;
 
   useEffect(() => {
-    const options = {
-      root: wrapperRef.current,
-      rootMargin: '0px',
-      threshold: 1
-    };
+    let observer: IntersectionObserver | null = null;
+    if (callback) {
+      const options = {
+        root: wrapperRef.current,
+        rootMargin: '0px',
+        threshold: 1
+      };
 
-    const observer = new IntersectionObserver(([enty]) => {
-      console.log('enty');
-    }, options);
+      observer = new IntersectionObserver(([enty]) => {
+        if (enty.isIntersecting) {
+          callback();
+          console.log('enty');
+        }
+      }, options);
 
-    observer.observe(triggerRef.current);
+      observer.observe(triggerRef.current);
+    }
 
     return () => {
       if (observer) {
@@ -28,5 +34,5 @@ export function useInfiniteScroll({ triggerRef, callback, wrapperRef }: Infinite
         observer.unobserve(triggerRef.current);
       }
     };
-  }, [triggerRef, wrapperRef]);
+  }, [triggerRef, wrapperRef, callback]);
 }

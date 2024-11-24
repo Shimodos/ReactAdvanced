@@ -6,9 +6,10 @@ import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfinit
 interface PageProps {
   className?: string;
   children?: React.ReactNode;
+  onScrollEnd?: () => void;
 }
 export const Page = (props: PageProps) => {
-  const { className, children } = props;
+  const { className, children, onScrollEnd } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -16,7 +17,7 @@ export const Page = (props: PageProps) => {
     triggerRef,
     wrapperRef,
     callback: () => {
-      console.log('callback');
+      onScrollEnd?.();
     }
   });
 

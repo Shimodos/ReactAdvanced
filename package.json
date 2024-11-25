@@ -1,6 +1,7 @@
 {
   "name": "production-project",
   "version": "1.0.0",
+  "homepage": "https://shimodos.github.io/ReactAdvanced",
   "description": "",
   "main": "index.js",
   "scripts": {

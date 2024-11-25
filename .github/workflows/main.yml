@@ -1,16 +1,57 @@
-name: linting, testing, and building
+# name: linting, testing, and building
+# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
+# jobs:
+#   pipeline:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [18.x]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Staring Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - name: install modules
+#         run: npm install
+#       - name: build production project
+#         run: npm run build:prod
+#         if: always()
+#       - name: linting typescript
+#         run: npm run lint:ts
+#         if: always()
+#       - name: linting css
+#         run: npm run lint:scss
+#         if: always()
+#       - name: unit testing
+#         run: npm run test:unit
+#         if: always()
+#       - name: build storybook
+#         run: npm run build-storybook
+#       # - name: screenshot testing
+#       #   run: npm run chromatic
+name: linting, testing, building and deployment
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
+
+permissions:
+  contents: write
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -18,7 +59,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: build production project
         run: npm run build:prod
         if: always()
@@ -33,5 +74,9 @@ jobs:
         if: always()
       - name: build storybook
         run: npm run build-storybook
-      # - name: screenshot testing
-      #   run: npm run chromatic
+        if: always()
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages

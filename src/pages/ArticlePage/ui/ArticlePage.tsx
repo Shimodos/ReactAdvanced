@@ -18,6 +18,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
   getArticlePageError,
+  getArticlePageInited,
   getArticlePageIsLoading,
   getArticlePageView
 } from '../model/selectors/articlePageSelectors';
@@ -40,6 +41,7 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
+  const inited = useSelector(getArticlePageInited);
   const onChangeView = useCallback(
     (view: ArticleView) => {
       dispatch(articlesPageActions.setView(view));
@@ -52,16 +54,18 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(
-      fetchArticleList({
-        page: 1
-      })
-    );
+    if (!inited) {
+      dispatch(articlesPageActions.initState());
+      dispatch(
+        fetchArticleList({
+          page: 1
+        })
+      );
+    }
   });
 
   return (
-    <DynamicModuleLoder reducers={reducers}>
+    <DynamicModuleLoder reducers={reducers} remmoveAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadingMore}
         className={classNames(classes.ArticlePage, {}, [className])}

@@ -23,16 +23,6 @@ export const ArticleList = (props: ArticleListProps) => {
   const { className, articcle, isLoading, view = ArticleView.GRID } = props;
   const { t } = useTranslation();
 
-  // if (isLoading) {
-  //   return (
-  //     <div className={classNames(classes.ArticleList, {}, [className, classes[view]])}>
-  //       {new Array(view === ArticleView.LIST ? 3 : 9).fill(0).map((_, index) => (
-  //         <ArticleListItemSkeleton view={view} className={classes.card} key={index} />
-  //       ))}
-  //     </div>
-  //   );
-  // }
-
   const renderArtcilce = (article: Article) => {
     return (
       <ArticleListItem article={article} view={view} className={classes.card} key={article.id} />

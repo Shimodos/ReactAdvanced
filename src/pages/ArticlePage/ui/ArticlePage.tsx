@@ -38,7 +38,7 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticle.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
-  const error = useSelector(getArticlePageError);
+  // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
   const onChangeView = useCallback(
     (view: ArticleView) => {

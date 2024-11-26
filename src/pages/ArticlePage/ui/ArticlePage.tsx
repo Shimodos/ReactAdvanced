@@ -17,7 +17,7 @@ import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticl
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
-  getArticlePageError,
+  // getArticlePageError,
   getArticlePageInited,
   getArticlePageIsLoading,
   getArticlePageView

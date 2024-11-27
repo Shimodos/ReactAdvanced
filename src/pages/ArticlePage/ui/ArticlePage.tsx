@@ -13,18 +13,17 @@ import {
   getArticle
 } from '../model/slices/ArticlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
   // getArticlePageError,
-  getArticlePageInited,
   getArticlePageIsLoading,
   getArticlePageView
 } from '../model/selectors/articlePageSelectors';
 import { useCallback } from 'react';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -41,7 +40,7 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
-  const inited = useSelector(getArticlePageInited);
+
   const onChangeView = useCallback(
     (view: ArticleView) => {
       dispatch(articlesPageActions.setView(view));
@@ -54,14 +53,7 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    if (!inited) {
-      dispatch(articlesPageActions.initState());
-      dispatch(
-        fetchArticleList({
-          page: 1
-        })
-      );
-    }
+    dispatch(initArticlesPage());
   });
 
   return (

@@ -1,5 +1,5 @@
 import { AnyAction, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { ReducerManager, StateSchema, StateSchemaKeys } from './StateSchema';
+import { MountedReducers, ReducerManager, StateSchema, StateSchemaKeys } from './StateSchema';
 
 export function createReducerManager(
   initialReducers: ReducersMapObject<StateSchema>
@@ -12,9 +12,11 @@ export function createReducerManager(
 
   // An array which is used to delete state keys when reducers are removed
   let keysToRemove: StateSchemaKeys[] = [];
+  const mountedReducers: MountedReducers = {};
 
   return {
     getReducerMap: () => reducers,
+    getMountedReducers: () => mountedReducers,
 
     // The root reducer function exposed by this object
     // This will be passed to the store
@@ -41,6 +43,7 @@ export function createReducerManager(
 
       // Add the reducer to the reducer mapping
       reducers[key] = reducer;
+      mountedReducers[key] = true;
 
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers);
@@ -58,6 +61,7 @@ export function createReducerManager(
 
       // Add the key to the list of keys to clean up
       keysToRemove.push(key);
+      mountedReducers[key] = false;
 
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers);

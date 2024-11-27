@@ -30,12 +30,14 @@ export interface StateSchema {
 }
 
 export type StateSchemaKeys = keyof StateSchema;
+export type MountedReducers = OptionalRecord<StateSchemaKeys, boolean>;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKeys, reducer: Reducer) => void;
   remove: (key: StateSchemaKeys) => void;
+  getMountedReducers: () => MountedReducers;
 }
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;

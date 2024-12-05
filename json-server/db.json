@@ -23,7 +23,7 @@
       "subtitle": "Whot is new in js world",
       "img": "https://www.w3schools.com/w3images/avatar2.png",
       "views": 1234,
-      "createdAt": "2021-09-01",
+      "createdAt": "2022-09-01",
       "userId": "1",
       "type": ["js", "news"],
       "blocks": [
@@ -92,8 +92,8 @@
       "title": "GoLang news",
       "subtitle": "Whot is new in js world",
       "img": "https://www.w3schools.com/w3images/avatar5.png",
-      "views": 1234,
-      "createdAt": "2021-09-01",
+      "views": 124,
+      "createdAt": "2020-09-01",
       "userId": "1",
       "type": ["js", "news"],
       "blocks": [
@@ -162,8 +162,8 @@
       "title": "Pyton news",
       "subtitle": "Whot is new in js world",
       "img": "https://www.w3schools.com/w3images/avatar3.png",
-      "views": 1234,
-      "createdAt": "2021-09-01",
+      "views": 234,
+      "createdAt": "2023-09-01",
       "userId": "1",
       "type": ["js", "news"],
       "blocks": [
@@ -232,8 +232,8 @@
       "title": "js news",
       "subtitle": "Whot is new in js world",
       "img": "https://www.w3schools.com/w3images/avatar2.png",
-      "views": 1234,
-      "createdAt": "2021-09-01",
+      "views": 13432,
+      "createdAt": "2019-09-01",
       "userId": "1",
       "type": ["js", "news"],
       "blocks": [
@@ -302,8 +302,8 @@
       "title": "js news",
       "subtitle": "Whot is new in js world",
       "img": "https://www.w3schools.com/w3images/avatar2.png",
-      "views": 1234,
-      "createdAt": "2021-09-01",
+      "views": 3234,
+      "createdAt": "2018-09-01",
       "userId": "1",
       "type": ["js", "news"],
       "blocks": [

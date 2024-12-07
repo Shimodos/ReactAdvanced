@@ -5,6 +5,8 @@ import { Article, ArticleView } from 'entities/Article';
 import { ArticlePageSchema } from '../types/ArticlePageSchema';
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
 import { ARTICLE_VIEV_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { ArticleSortField } from 'entities/Article/models/types/article';
+import { SortOrder } from 'shared/types';
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
 });
@@ -23,7 +25,10 @@ const articlePageSlice = createSlice({
     view: ArticleView.GRID,
     page: 1,
     haseMore: true,
-    _inited: false
+    _inited: false,
+    order: 'asc',
+    sort: ArticleSortField.CREATED_AT,
+    search: ''
   }),
 
   reducers: {
@@ -33,6 +38,15 @@ const articlePageSlice = createSlice({
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
+    },
+    setSort: (state, action: PayloadAction<ArticleSortField>) => {
+      state.sort = action.payload;
+    },
+    setOrder: (state, action: PayloadAction<SortOrder>) => {
+      state.order = action.payload;
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
     },
     initState: (state) => {
       const view = localStorage.getItem(ARTICLE_VIEV_LOCALSTORAGE_KEY) as ArticleView;

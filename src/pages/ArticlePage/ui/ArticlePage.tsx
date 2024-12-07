@@ -24,6 +24,7 @@ import { useCallback } from 'react';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+import { ArticlePageFilters } from './ArticlePageFilters/ArticlePageFilters';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -41,12 +42,12 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
+  // const onChangeView = useCallback(
+  //   (view: ArticleView) => {
+  //     dispatch(articlesPageActions.setView(view));
+  //   },
+  //   [dispatch]
+  // );
 
   const onLoadingMore = useCallback(() => {
     dispatch(fetchNextArticlePage());
@@ -62,7 +63,8 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
         onScrollEnd={onLoadingMore}
         className={classNames(classes.ArticlePage, {}, [className])}
       >
-        <ArticleViewSelector view={view} onChangeView={onChangeView} />
+        {/* <ArticleViewSelector view={view} onChangeView={onChangeView} /> */}
+        <ArticlePageFilters />
         <ArticleList isLoading={isLoading} view={view} articcle={articles} />
       </Page>
     </DynamicModuleLoder>

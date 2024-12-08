@@ -12,6 +12,7 @@ export interface DistEnv {
   mode: DistMode;
   port: number;
   apiUrl: string;
+  isGithubPages?: boolean;
 }
 
 export interface DistOptions {
@@ -21,4 +22,5 @@ export interface DistOptions {
   port: number;
   apiUrl: string;
   project: 'storybook' | 'frontend' | 'jest';
+  isGithubPages?: boolean;
 }

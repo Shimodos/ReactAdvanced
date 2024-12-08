@@ -35,8 +35,55 @@
 #         run: npm run build-storybook
 #       # - name: screenshot testing
 #       #   run: npm run chromatic
-name: linting, testing, building and deployment
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+# name: linting, testing, building and deployment
+# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
+
+# permissions:
+#   contents: write
+
+# jobs:
+#   pipeline:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [18.x]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Staring Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - name: install modules
+#         run: npm install --legacy-peer-deps
+#       - name: build production project
+#         run: npm run build:prod
+#         if: always()
+#       - name: linting typescript
+#         run: npm run lint:ts
+#         if: always()
+#       - name: linting css
+#         run: npm run lint:scss
+#         if: always()
+#       - name: unit testing
+#         run: npm run test:unit
+#         if: always()
+#       - name: build storybook
+#         run: npm run build-storybook
+#         if: always()
+#       - name: Deploy
+#         uses: JamesIves/github-pages-deploy-action@v4
+#         with:
+#           folder: dist
+#           branch: gh-pages
+
+name: Deploy React App to GitHub Pages
+run-name: ${{ github.actor }} is deploying to GitHub Pages 🚀
 on:
   push:
     branches: [master]
@@ -45,10 +92,15 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  pipeline:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [18.x]
@@ -58,25 +110,24 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
+      - name: Install modules
         run: npm install --legacy-peer-deps
-      - name: build production project
+      - name: Build production project
         run: npm run build:prod
-        if: always()
-      - name: linting typescript
+      - name: Linting typescript
         run: npm run lint:ts
         if: always()
-      - name: linting css
+      - name: Linting css
         run: npm run lint:scss
         if: always()
-      - name: unit testing
+      - name: Unit testing
         run: npm run test:unit
         if: always()
-      - name: build storybook
+      - name: Build storybook
         run: npm run build-storybook
         if: always()
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: dist # Убедитесь, что это соответствует вашей папке сборки
           branch: gh-pages

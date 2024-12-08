@@ -14,6 +14,7 @@ export default (env: DistEnv): webpack.Configuration => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
   const apiUrl = env.apiUrl || 'http://localhost:8000';
+  const isGithubPages = env.isGithubPages || false;
 
   const isDev = mode === 'development';
 
@@ -23,7 +24,8 @@ export default (env: DistEnv): webpack.Configuration => {
     isDev,
     port: PORT,
     apiUrl,
-    project: 'frontend'
+    project: 'frontend',
+    isGithubPages
   });
   return config;
 };

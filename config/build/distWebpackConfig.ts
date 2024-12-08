@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import { distDevServer } from './distDevServer';
 
 export function distWebpackConfig(options: DistOptions): webpack.Configuration {
-  const { paths, mode, isDev } = options;
+  const { paths, mode, isDev, isGithubPages } = options;
 
   return {
     mode,
@@ -15,7 +15,7 @@ export function distWebpackConfig(options: DistOptions): webpack.Configuration {
       filename: '[name].[contenthash].js',
       path: paths.dist,
       clean: true,
-      publicPath: '/'
+      publicPath: isGithubPages ? '/ReactAdvanced/' : '/'
     },
     plugins: distConfig(options),
     module: {

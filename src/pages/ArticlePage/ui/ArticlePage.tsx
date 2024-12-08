@@ -42,13 +42,6 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
 
-  // const onChangeView = useCallback(
-  //   (view: ArticleView) => {
-  //     dispatch(articlesPageActions.setView(view));
-  //   },
-  //   [dispatch]
-  // );
-
   const onLoadingMore = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);

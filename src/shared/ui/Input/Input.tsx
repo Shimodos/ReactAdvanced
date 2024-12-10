@@ -13,6 +13,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   autofocus?: boolean;
   readonly?: boolean;
+  placeholder?: string;
 }
 
 const Input = memo(function Input(props: InputProps) {
@@ -74,6 +75,7 @@ const Input = memo(function Input(props: InputProps) {
           onBlur={onBlur}
           onSelect={onSelect}
           readOnly={readonly}
+          // placeholder={placeholder}
           {...otherProps}
           // className={className}
         />

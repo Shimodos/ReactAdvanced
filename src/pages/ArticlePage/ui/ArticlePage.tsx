@@ -25,6 +25,7 @@ import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import { ArticlePageFilters } from './ArticlePageFilters/ArticlePageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -41,13 +42,14 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
+  const [searchParams] = useSearchParams();
 
   const onLoadingMore = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
 
   return (

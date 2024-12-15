@@ -25,6 +25,7 @@ const articlePageSlice = createSlice({
     view: ArticleView.GRID,
     page: 1,
     haseMore: true,
+    limit: 6,
     _inited: false,
     order: 'asc',
     sort: ArticleSortField.CREATED_AT,
@@ -67,7 +68,7 @@ const articlePageSlice = createSlice({
       })
       .addCase(fetchArticleList.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.haseMore = action.payload.length > 0;
+        state.haseMore = action.payload.length >= (state.limit ?? 0);
 
         if (action.meta.arg.replace) {
           articlesAdapter.setAll(state, action.payload);

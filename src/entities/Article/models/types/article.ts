@@ -35,6 +35,7 @@ export enum ArticleSortField {
 }
 
 export enum ArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   SPORT = 'SPORT',
   SCIENCE = 'SCIENCE'

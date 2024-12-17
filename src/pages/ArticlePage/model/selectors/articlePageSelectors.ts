@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleSortField, ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 
 export const getArticlePageIsLoading = (state: StateSchema) =>
   state.articlePage?.isLoading || false;
@@ -23,3 +23,6 @@ export const getArticlePageSort = (state: StateSchema) =>
   state.articlePage?.sort ?? ArticleSortField.CREATED_AT;
 
 export const getArticlePageSearch = (state: StateSchema) => state.articlePage?.search || '';
+
+export const getArticlePageTypr = (state: StateSchema) =>
+  state.articlePage?.type || ArticleType.ALL;

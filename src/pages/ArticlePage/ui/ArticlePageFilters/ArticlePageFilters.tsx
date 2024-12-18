@@ -106,8 +106,6 @@ export const ArticlePageFilters = ({ className }: ArticlePageFiltersProps) => {
     [t]
   );
 
-  // фуекция для
-
   return (
     <div className={classNames(classes.ArticlePageFilters, {}, [className])}>
       <div className={classes.sortWrapper}>

@@ -31,9 +31,9 @@ export const Tabs = (props: TabsProps) => {
     <div className={classNames(classes.Tabs, {}, [className])}>
       {tabs.map((tab) => (
         <Card
-          theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+          theme={tab.value === value ? CardTheme.OUTLINED : CardTheme.NORMAL}
           key={tab.value}
-          className={classNames(classes.Tab, { [classes.active]: tab.value === value })}
+          className={classes.tab}
           onClick={clickHandler(tab)}
         >
           {tab.constent}

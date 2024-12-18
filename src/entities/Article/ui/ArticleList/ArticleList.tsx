@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Article, ArticleView } from 'entities/Article/models/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSceleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 
 interface ArticleListProps {
   className?: string;
@@ -28,6 +29,14 @@ export const ArticleList = (props: ArticleListProps) => {
       <ArticleListItem article={article} view={view} className={classes.card} key={article.id} />
     );
   };
+
+  if (!isLoading && articcle.length === 0) {
+    return (
+      <div className={classNames(classes.ArticleList, {}, [className, classes[view]])}>
+        <Text size={TextSize.L} title={t('NotFoundArticle')} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(classes.ArticleList, {}, [className, classes[view]])}>

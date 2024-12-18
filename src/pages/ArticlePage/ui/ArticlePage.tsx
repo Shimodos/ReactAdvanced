@@ -58,7 +58,6 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
         onScrollEnd={onLoadingMore}
         className={classNames(classes.ArticlePage, {}, [className])}
       >
-        {/* <ArticleViewSelector view={view} onChangeView={onChangeView} /> */}
         <ArticlePageFilters />
         <ArticleList isLoading={isLoading} view={view} articcle={articles} />
       </Page>

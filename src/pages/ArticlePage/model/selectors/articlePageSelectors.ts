@@ -24,5 +24,5 @@ export const getArticlePageSort = (state: StateSchema) =>
 
 export const getArticlePageSearch = (state: StateSchema) => state.articlePage?.search || '';
 
-export const getArticlePageTypr = (state: StateSchema) =>
+export const getArticlePageType = (state: StateSchema) =>
   state.articlePage?.type || ArticleType.ALL;

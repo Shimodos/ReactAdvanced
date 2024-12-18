@@ -12,7 +12,7 @@ interface TabsProps {
   className?: string;
   tabs: TabItem[];
   value: string;
-  onTabClick: (value: string) => void;
+  onTabClick: (tab: TabItem) => void;
 }
 
 export const Tabs = (props: TabsProps) => {
@@ -21,7 +21,7 @@ export const Tabs = (props: TabsProps) => {
   const clickHandler = useCallback(
     (tab: TabItem) => {
       return () => {
-        onTabClick(tab.value);
+        onTabClick(tab);
       };
     },
     [onTabClick]

@@ -7,7 +7,7 @@ import {
   getArticlePageOrder,
   getArticlePageSearch,
   getArticlePageSort,
-  getArticlePageTypr
+  getArticlePageType
 } from 'pages/ArticlePage/model/selectors/articlePageSelectors';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 
@@ -28,7 +28,7 @@ export const fetchArticleList = createAsyncThunk<
   const sort = getArticlePageSort(getState());
   const search = getArticlePageSearch(getState());
   const page = getArticlePageNum(getState());
-  const type = getArticlePageTypr(getState());
+  const type = getArticlePageType(getState());
 
   try {
     addQueryParams({

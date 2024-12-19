@@ -84,9 +84,9 @@ export const ArticlePageFilters = ({ className }: ArticlePageFiltersProps) => {
     (value: ArticleType) => {
       dispatch(articlesPageActions.setType(value));
       dispatch(articlesPageActions.setPage(1));
-      drbounceFetchData();
+      fetchData();
     },
-    [dispatch, drbounceFetchData]
+    [dispatch, fetchData]
   );
 
   return (

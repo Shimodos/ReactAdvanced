@@ -7,3 +7,10 @@
   width: 120px;
   margin-top: 16px;
 }
+
+.recommendation {
+  flex-wrap: nowrap !important;
+  margin-bottom: 26px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

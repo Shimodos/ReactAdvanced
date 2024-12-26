@@ -5,12 +5,14 @@ import { Article, ArticleView } from 'entities/Article/models/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSceleton';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { HTMLAttributeAnchorTarget } from 'react';
 
 interface ArticleListProps {
   className?: string;
   articcle: Article[];
   isLoading: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -21,12 +23,18 @@ const getSkeletons = (view: ArticleView) =>
     ));
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { className, articcle, isLoading, view = ArticleView.GRID } = props;
+  const { className, articcle, isLoading, target, view = ArticleView.GRID } = props;
   const { t } = useTranslation();
 
   const renderArtcilce = (article: Article) => {
     return (
-      <ArticleListItem article={article} view={view} className={classes.card} key={article.id} />
+      <ArticleListItem
+        article={article}
+        view={view}
+        className={classes.card}
+        key={article.id}
+        target={target}
+      />
     );
   };
 

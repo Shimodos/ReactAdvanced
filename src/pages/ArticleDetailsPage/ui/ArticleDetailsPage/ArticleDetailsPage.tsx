@@ -9,10 +9,7 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments
-} from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
+import { getArticleComments } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -23,12 +20,10 @@ import addCommentForArticle from 'pages/ArticleDetailsPage/model/services/sendCo
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
 import { Page } from 'shared/ui/Page/Page';
-import {
-  articleDetailsRecommendationReducer,
-  getArticleRecommendation
-} from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsRecommendationSlice';
+import { getArticleRecommendation } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsRecommendationSlice';
 import { getArticleRecommendationIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendation';
 import { fetchRecommendationArticle } from 'pages/ArticleDetailsPage/model/services/fetchRecommendationArticle/fetchRecommendationArticle';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -65,8 +60,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleDetailsRecommendation: articleDetailsRecommendationReducer
+    ArticleDetailsPage: articleDetailsPageReducer
   };
 
   return (
@@ -81,6 +75,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           isLoading={recommendationIsLoading}
           articcle={recommendation}
           className={classes.recommendation}
+          target="_blank"
         />
         <Text size={TextSize.M} title={t('Comments')} />
         <AddCommentForm onSendComment={onSendComment} />
@@ -91,6 +86,3 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 };
 
 export default ArticleDetailsPage;
-// function dispatch(arg0: any) {
-//   throw new Error('Function not implemented.');
-// }

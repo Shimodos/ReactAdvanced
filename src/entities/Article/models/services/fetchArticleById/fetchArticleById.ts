@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
+import { log } from 'node:console';
 
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
   'articleDetails/fetchArticleById',
@@ -8,7 +9,11 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
     const { extra, rejectWithValue } = thunkAPI;
 
     try {
-      const response = await extra.api.get<Article>(`/articles/${articleId}`);
+      const response = await extra.api.get<Article>(`/articles/${articleId}`, {
+        params: {
+          _embed: 'user'
+        }
+      });
 
       if (!response.data) {
         throw new Error('No data');

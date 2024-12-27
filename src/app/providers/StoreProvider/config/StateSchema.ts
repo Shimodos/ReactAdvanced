@@ -15,11 +15,7 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { ArticleDetailsSchema } from 'entities/Article';
-import {
-  // ArticleDetailsCommentSchema,
-  ArticleDetailsPageSchema
-  // ArticleDetailsRecommendationSchema
-} from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { UISchema } from 'features/UI';
@@ -29,8 +25,6 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  // articleDetailsComments?: ArticleDetailsCommentSchema;
-  // articleDetailsRecommendation?: ArticleDetailsRecommendationSchema;
   AddCommentForm?: AddCommentFormSchema;
   ArticleDetailsPage?: ArticleDetailsPageSchema;
   articlePage?: ArticlePageSchema;

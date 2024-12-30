@@ -29,6 +29,10 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
     navigate(RoutePath.articles);
   }, [navigate]);
 
+  const onEditArticle = useCallback(() => {
+    navigate(`${RoutePath.article_details}${article?.id}/edit`);
+  }, [navigate, article]);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
     dispatch(fetchRecommendationArticle());
@@ -40,7 +44,7 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
         {t('Back')}
       </Button>
       {!canEdit && (
-        <Button theme={ThemeButton.OUTLINE} className={classes.editBtn} onClick={onBack}>
+        <Button theme={ThemeButton.OUTLINE} className={classes.editBtn} onClick={onEditArticle}>
           {t('Edit')}
         </Button>
       )}

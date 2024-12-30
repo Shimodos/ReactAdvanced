@@ -29,7 +29,7 @@ export const RoutePath: Record<AppRoute, string> = {
   [AppRoute.ABOUT]: '/about',
   [AppRoute.PROFILE]: '/profile/', // + id
   [AppRoute.ARTICLES]: '/articles',
-  [AppRoute.ARTICLE_CREATE]: '/articles/create',
+  [AppRoute.ARTICLE_CREATE]: '/articles/new',
   [AppRoute.ARTICLE_EDIT]: '/articles/:id/edit/', // + id
   [AppRoute.ARTICLE_DETAILS]: '/articles/', // + id
   [AppRoute.NOT_FOUND]: '*'

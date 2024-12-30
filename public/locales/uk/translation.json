@@ -1,4 +1,5 @@
 {
+  "AdvApp": "Розширений React додаток",
   "TestExample": "Тестовий переклад",
   "Translate": "Перекласти",
   "MainPage": "Головна сторінка",
@@ -30,5 +31,7 @@
   "Back": "Назад",
   "Edit": "Редагувати",
   "NotFoundArticle": "Статтю не знайдено",
-  "Recommends": "Рекомендації"
+  "Recommends": "Рекомендації",
+  "EditArticle": "Редагувати статтю: ",
+  "CreateNewArticle": "Створити нову статтю"
 }

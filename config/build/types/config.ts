@@ -6,6 +6,8 @@ export interface DistPath {
   dist: string;
   html: string;
   src: string;
+  locales: string;
+  buildLocale: string;
 }
 
 export interface DistEnv {

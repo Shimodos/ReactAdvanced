@@ -4,10 +4,6 @@
   border-radius: 8px;
 }
 
-.input {
-  margin-bottom: 10px;
-}
-
 .loafing {
   display: flex;
   justify-content: center;
@@ -16,17 +12,7 @@
 }
 
 .error {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 300px;
-}
-
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
 }
 
 .editing {

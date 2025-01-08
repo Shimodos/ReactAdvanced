@@ -44,7 +44,9 @@ export const Sidebar = memo(({ className }: SidebarProps): JSX.Element => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <VStack gap={'8'} className={classes.items}>{itemsList}</VStack>
+      <VStack role="navigation" gap={'8'} className={classes.items}>
+        {itemsList}
+      </VStack>
       <div className={classes.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={classes.lang} />

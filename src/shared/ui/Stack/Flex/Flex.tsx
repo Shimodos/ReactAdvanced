@@ -37,7 +37,9 @@ const gapMap: Record<FlexGap, string> = {
   40: classes.gap40
 };
 
-export interface FlexProps {
+type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps {
   className?: string;
   children: React.ReactNode;
   justify?: FlexJustify;
@@ -46,6 +48,7 @@ export interface FlexProps {
   gap?: FlexGap;
   max?: boolean;
 }
+
 export const Flex = (props: FlexProps) => {
   const {
     className,

@@ -1,19 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../app/styles/index.scss';
-import Listbox from './ListBox';
+import Dropdown from './Dropdown';
 
 const meta = {
-  title: 'shared/Listbox',
-  component: Listbox,
+  title: 'shared/Dropdown',
+  component: Dropdown,
   parameters: {
-    // layout: 'centered'
+    // layout: 'centered',
+    // backgrounds: {
+    //   default: 'light'
+    // }
   },
   tags: ['autodocs'],
   argTypes: {
     // backgroundColor: { control: 'color' }
     // value: { control: 'text' }
   }
-} satisfies Meta<typeof Listbox>;
+} satisfies Meta<typeof Dropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

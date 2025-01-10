@@ -1,5 +1,6 @@
 import { Menu } from '@headlessui/react';
 import classes from './Dropdown.module.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface DropdownProps {
   className?: string;
@@ -9,25 +10,15 @@ interface DropdownProps {
 function MyDropdown(props: DropdownProps) {
   const { children, className } = props;
   return (
-    <Menu>
-      <Menu.Button>More</Menu.Button>
-      <Menu.Items>
-        <Menu.Item>
+    <Menu as={'div'} className={classNames(classes.dropdown, {}, [className])}>
+      <Menu.Button className={classes.btn}>More</Menu.Button>
+      <Menu.Items className={classes.items}>
+        <Menu.Item as={'div'} className={classes.item}>
           {({ active }) => (
             <a className={`${active && 'bg-blue-500'}`} href="/account-settings">
               Account settings
             </a>
           )}
-        </Menu.Item>
-        <Menu.Item>
-          {({ active }) => (
-            <a className={`${active && 'bg-blue-500'}`} href="/account-settings">
-              Documentation
-            </a>
-          )}
-        </Menu.Item>
-        <Menu.Item disabled>
-          <span className="opacity-75">Invite a friend (coming soon!)</span>
         </Menu.Item>
       </Menu.Items>
     </Menu>

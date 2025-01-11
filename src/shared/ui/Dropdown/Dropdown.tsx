@@ -1,25 +1,44 @@
 import { Menu } from '@headlessui/react';
 import classes from './Dropdown.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Fragment } from 'react';
 
+interface DropdownItem {
+  disabled?: boolean;
+  content?: React.ReactNode;
+  label?: string;
+  onClick: () => void;
+  href?: string;
+}
 interface DropdownProps {
   className?: string;
-  children: React.ReactNode;
+  items?: DropdownItem[];
+  trigger?: React.ReactNode;
 }
 
+const trigger = <button className={classes.trigger}>Trigger</button>;
+
 function MyDropdown(props: DropdownProps) {
-  const { children, className } = props;
+  const { className, items, trigger } = props;
   return (
     <Menu as={'div'} className={classNames(classes.dropdown, {}, [className])}>
-      <Menu.Button className={classes.btn}>More</Menu.Button>
+      <Menu.Button className={classes.btn}>{trigger}</Menu.Button>
       <Menu.Items className={classes.items}>
-        <Menu.Item as={'div'} className={classes.item}>
-          {({ active }) => (
-            <a className={`${active && 'bg-blue-500'}`} href="/account-settings">
-              Account settings
-            </a>
-          )}
-        </Menu.Item>
+        {items?.map((item, index) => {
+          return (
+            <Menu.Item as={Fragment} key={index} disabled={item.disabled}>
+              {({ active }) => (
+                <button
+                  type="button"
+                  className={classNames(classes.item, { [classes.active]: active })}
+                  onClick={item.onClick}
+                >
+                  {item.content}
+                </button>
+              )}
+            </Menu.Item>
+          );
+        })}
       </Menu.Items>
     </Menu>
   );

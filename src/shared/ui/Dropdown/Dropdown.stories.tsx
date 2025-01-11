@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../app/styles/index.scss';
 import Dropdown from './Dropdown';
+import { Button } from '../Button/Button';
 
 const meta = {
   title: 'shared/Dropdown',
@@ -23,6 +24,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    value: 'Durward Reynolds'
+    trigger: <Button>Trigger</Button>,
+    items: [
+      {
+        value: 'item1',
+        content: 'Item 1'
+      },
+      {
+        value: 'item1',
+        content: 'Item 1'
+      }
+    ]
   }
 };

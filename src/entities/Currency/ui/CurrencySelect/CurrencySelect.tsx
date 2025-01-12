@@ -37,7 +37,7 @@ export const CurrencySelect = memo(
         items={options}
         readonly={readonly}
         label={t('Currency')}
-        direction={'up'}
+        direction={'up right'}
       ></Listbox>
     );
   }

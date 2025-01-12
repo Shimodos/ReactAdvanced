@@ -32,6 +32,19 @@
   color: var(--disabled-color);
 }
 
-.optionUp {
+.optionDownLeft {
+  top: 100%;
+  right: 0;
+}
+.optionUpLeft {
   bottom: 100%;
+  right: 0;
+}
+.optionDownRight {
+  top: 100%;
+  left: 0;
+}
+.optionUpRight {
+  bottom: 100%;
+  left: 0;
 }

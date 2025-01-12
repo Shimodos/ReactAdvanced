@@ -24,15 +24,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    trigger: <Button>Trigger</Button>,
+    trigger: <Button>Open</Button>,
     items: [
       {
-        value: 'item1',
+        onClick: () => {},
         content: 'Item 1'
       },
       {
-        value: 'item1',
-        content: 'Item 1'
+        onClick: () => {},
+        content: 'Item 2'
+      },
+      {
+        onClick: () => {},
+        content: 'Item 3'
       }
     ]
   }

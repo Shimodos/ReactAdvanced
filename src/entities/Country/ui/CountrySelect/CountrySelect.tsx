@@ -39,7 +39,7 @@ export const CountrySelect = memo(
         items={options}
         readonly={readonly}
         label={t('Country')}
-        direction={'up'}
+        direction={'up right'}
       ></Listbox>
     );
   }

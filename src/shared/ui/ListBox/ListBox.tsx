@@ -4,14 +4,13 @@ import classes from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
+import { DropDowDirection } from '../../types/ui';
 
 export interface ListBoxItem {
   value: string;
   content: React.ReactNode;
   disabled?: boolean;
 }
-
-type DropDowDirection = 'up' | 'down';
 
 interface ListBoxProps {
   items?: ListBoxItem[];
@@ -25,8 +24,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropDowDirection, string> = {
-  down: classes.optionDown,
-  up: classes.optionUp
+  'down left': classes.optionDownLeft,
+  'up left': classes.optionUpLeft,
+  'down right': classes.optionDownRight,
+  'up right': classes.optionUpRight
 };
 
 function Listbox(props: ListBoxProps) {
@@ -38,7 +39,7 @@ function Listbox(props: ListBoxProps) {
     onChange,
     readonly,
     label,
-    direction = 'up'
+    direction = 'up left'
   } = props;
 
   const optionsClasses = [mapDirectionClass[direction]];

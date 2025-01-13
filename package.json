@@ -16,7 +16,8 @@
     "test:unit": "jest  --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/.storybook",
     "build-storybook": "storybook build -c ./config/.storybook",
-    "chromatic": "npx chromatic --project-token=chpt_189b3730b904036"
+    "chromatic": "npx chromatic --project-token=chpt_189b3730b904036",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",

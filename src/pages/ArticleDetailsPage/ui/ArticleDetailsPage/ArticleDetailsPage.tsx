@@ -9,7 +9,8 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import { getArticleComments } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
+// import { getArticleComments } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
+import { getArticleComments } from '../../../../pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments';
 import { AddCommentForm } from 'features/addCommentForm';
@@ -20,6 +21,7 @@ import { getArticleRecommendation } from 'pages/ArticleDetailsPage/model/slices/
 import { getArticleRecommendationIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendation';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRcommendationList } from 'features/articleRcommendationList';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -54,13 +56,14 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <Page>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <Text size={TextSize.L} title={t('Recommends')} />
+        <ArticleRcommendationList />
+        {/* <Text size={TextSize.L} title={t('Recommends')} />
         <ArticleList
           isLoading={recommendationIsLoading}
           articcle={recommendation}
           className={classes.recommendation}
           target="_blank"
-        />
+        /> */}
         <Text size={TextSize.M} title={t('Comments')} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommetnList isLoading={commentIsLoading} comments={comments} />

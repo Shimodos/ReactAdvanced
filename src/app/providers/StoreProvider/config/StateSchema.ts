@@ -15,10 +15,11 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { UISchema } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
@@ -29,6 +30,7 @@ export interface StateSchema {
   ArticleDetailsPage?: ArticleDetailsPageSchema;
   articlePage?: ArticlePageSchema;
   ui: UISchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export type StateSchemaKeys = keyof StateSchema;

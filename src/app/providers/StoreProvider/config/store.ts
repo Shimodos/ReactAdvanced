@@ -7,6 +7,7 @@ import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
 import { NavigateOptions, To } from 'react-router-dom';
 import { UIReducer } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -18,7 +19,8 @@ export function createReduxStore(
     counter: counterReducer,
     user: userReducer,
     // loginForm: loginReducer
-    ui: UIReducer
+    ui: UIReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   };
 
   const reducerManager = createReducerManager(rootReducer);
@@ -35,7 +37,7 @@ export function createReduxStore(
             navigate
           }
         }
-      })
+      }).concat(rtkApi.middleware)
   });
 
   // @ts-expect-error - store is extended

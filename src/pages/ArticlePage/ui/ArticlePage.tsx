@@ -2,16 +2,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './ArticlePage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import {
-  articlePageReducer,
-  articlesPageActions,
-  getArticle
-} from '../model/slices/ArticlePageSlice';
+import { articlePageReducer, getArticle } from '../model/slices/ArticlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -40,7 +35,6 @@ const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticle.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
-  // const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
   const [searchParams] = useSearchParams();
 

@@ -10,7 +10,7 @@ import {
   Reducer,
   ReducersMapObject
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
+
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 import { Dispatch } from 'redux';
@@ -20,6 +20,7 @@ import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { UISchema } from 'features/UI';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;

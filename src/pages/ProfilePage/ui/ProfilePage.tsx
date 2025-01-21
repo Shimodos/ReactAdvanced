@@ -3,7 +3,7 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import { profileReducer } from 'entities/Profile';
+import { profileReducer } from '../../../features/editableProfileCard/model/slice/profileSlice';
 import { ProfilePageHeaders } from './ProfilePageHeaders/ProfilePageHeaders';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'shared/ui/Page/Page';

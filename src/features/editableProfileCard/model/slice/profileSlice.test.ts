@@ -1,4 +1,4 @@
-import { ProfileSchema } from '../type/profile';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { profileActions, profileReducer } from './profileSlice';
 
 describe('getLoginPassword', () => {

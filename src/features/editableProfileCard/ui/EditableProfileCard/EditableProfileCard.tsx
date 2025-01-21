@@ -2,16 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import classes from './EditableProfileCard.module.scss';
 import { memo, useCallback } from 'react';
-import {
-  fetchProfileData,
-  getProfileError,
-  getProfileForm,
-  getProfileIsLoading,
-  getProfileReadonly,
-  getProfileValidateError,
-  profileActions,
-  ProfileCard
-} from 'entities/Profile';
+
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -20,10 +11,25 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateError } from '../../model/selectors/getProfileValidateError/getProfileValidateError';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
+import {
+  DynamicModuleLoder,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
 
 interface EditableProfileCardProps {
   className?: string;
 }
+const reducers: ReducersList = {
+  profile: profileReducer
+};
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className } = props;
@@ -37,7 +43,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const validateError = useSelector(getProfileValidateError);
   const { id } = useParams<{ id: string }>();
 
-  const validateErrorTranslate = {
+  const validateErrorTranslate: Record<validateProfileDataError, string> = {
     [validateProfileDataError.INCORRECT_USER_DATA]: t('Incorrect user data'),
     [validateProfileDataError.INCORRECT_AGE]: t('Age is required'),
     [validateProfileDataError.INCORRECT_COUNTRY]: t('Country is required'),
@@ -113,27 +119,29 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   );
 
   return (
-    <div className={classNames(classes.EditableProfileCard, {}, [className])}>
-      {validateError?.length &&
-        validateError?.map((error, index) => (
-          <Text key={index} theme={ThemeText.ERROR} text={validateErrorTranslate[error]} />
-        ))}
-      <ProfileCard
-        data={formData}
-        className={className}
-        isLoading={isLoading}
-        error={error}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-        readonly={readonly}
-      />
-    </div>
+    <DynamicModuleLoder reducers={reducers} remmoveAfterUnmount={false}>
+      <div className={classNames(classes.EditableProfileCard, {}, [className])}>
+        {validateError?.length &&
+          validateError?.map((error: validateProfileDataError, index: number) => (
+            <Text key={index} theme={ThemeText.ERROR} text={validateErrorTranslate[error]} />
+          ))}
+        <ProfileCard
+          data={formData}
+          className={className}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstName={onChangeFirstName}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+          readonly={readonly}
+        />
+      </div>
+    </DynamicModuleLoder>
   );
 });
 

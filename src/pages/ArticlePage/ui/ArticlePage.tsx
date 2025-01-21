@@ -26,7 +26,6 @@ const reducers: ReducersList = {
 };
 
 const ArticlePage = ({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
 

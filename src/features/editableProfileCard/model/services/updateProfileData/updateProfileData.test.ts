@@ -3,7 +3,7 @@ import { Country } from 'entities/Country/model/types/Country';
 import { updateProfileData } from './updateProfileData';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Currency } from 'entities/Currency/model/types/Currency';
-import { validateProfileDataError } from '../../type/profile';
+import { validateProfileDataError } from 'entities/Profile/model/type/profile';
 
 const data = {
   username: 'admin',

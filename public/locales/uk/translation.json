@@ -33,5 +33,6 @@
   "NotFoundArticle": "Статтю не знайдено",
   "Recommends": "Рекомендації",
   "EditArticle": "Редагувати статтю: ",
-  "CreateNewArticle": "Створити нову статтю"
+  "CreateNewArticle": "Створити нову статтю",
+  "UserNotFound": "Користувача не знайдено"
 }

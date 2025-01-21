@@ -5,7 +5,6 @@ import { memo, useCallback } from 'react';
 
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { validateProfileDataError } from 'entities/Profile/model/type/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
@@ -26,13 +25,14 @@ import {
 
 interface EditableProfileCardProps {
   className?: string;
+  id: string;
 }
 const reducers: ReducersList = {
   profile: profileReducer
 };
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-  const { className } = props;
+  const { className, id } = props;
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -41,7 +41,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateError = useSelector(getProfileValidateError);
-  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslate: Record<validateProfileDataError, string> = {
     [validateProfileDataError.INCORRECT_USER_DATA]: t('Incorrect user data'),

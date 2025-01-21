@@ -33,5 +33,6 @@
   "NotFoundArticle": "Article not found",
   "Recommends": "Recommends",
   "EditArticle": "Edit article: ",
-  "CreateNewArticle": "Create new article"
+  "CreateNewArticle": "Create new article",
+  "UserNotFound": "User not found"
 }

@@ -13,16 +13,16 @@ interface ArticleRcommendationListProps {
 export const ArticleRcommendationList = memo((props: ArticleRcommendationListProps) => {
   const { className } = props;
   const { t } = useTranslation();
-  const { isLoading, data, error } = useArticleRecommendationList(3);
+  const { isLoading, data: articles, error } = useArticleRecommendationList(3);
 
-  if (isLoading || error) {
+  if (isLoading || error || !articles) {
     return null;
   }
 
   return (
     <VStack gap={'8'} className={classNames('', {}, [className])}>
       <Text size={TextSize.L} title={t('Recommends')} />
-      <ArticleList isLoading={isLoading} articcle={data} target="_blank" />
+      <ArticleList isLoading={isLoading} articcle={articles} target="_blank" virtualized={false} />
     </VStack>
   );
 });

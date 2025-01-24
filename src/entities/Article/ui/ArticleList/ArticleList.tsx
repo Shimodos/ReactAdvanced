@@ -14,6 +14,7 @@ interface ArticleListProps {
   isLoading: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  virtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -24,7 +25,14 @@ const getSkeletons = (view: ArticleView) =>
     ));
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { className, articcle, isLoading, target, view = ArticleView.GRID } = props;
+  const {
+    className,
+    articcle,
+    isLoading,
+    target,
+    virtualized = true,
+    view = ArticleView.GRID
+  } = props;
   const { t } = useTranslation();
 
   const isBig = view === ArticleView.LIST;
@@ -75,17 +83,29 @@ export const ArticleList = (props: ArticleListProps) => {
           ref={registerChild}
           className={classNames(classes.ArticleList, {}, [className, classes[view]])}
         >
-          <List
-            height={height ?? 700}
-            rowCount={rowCount}
-            rowHeight={isBig ? 700 : 330}
-            rowRenderer={rowRenderer}
-            width={width ? width - 80 : 500}
-            autoHeight
-            isScrolling={isScrolling}
-            scrollTop={scrollTop}
-            onScroll={onChildScroll}
-          />
+          {virtualized ? (
+            <List
+              height={height ?? 700}
+              rowCount={rowCount}
+              rowHeight={isBig ? 700 : 330}
+              rowRenderer={rowRenderer}
+              width={width ? width - 80 : 500}
+              autoHeight
+              isScrolling={isScrolling}
+              scrollTop={scrollTop}
+              onScroll={onChildScroll}
+            />
+          ) : (
+            articcle.map((item) => (
+              <ArticleListItem
+                article={item}
+                view={view}
+                className={classes.card}
+                target={target}
+                key={item.id}
+              />
+            ))
+          )}
           {isLoading ? getSkeletons(view) : null}
         </div>
       )}

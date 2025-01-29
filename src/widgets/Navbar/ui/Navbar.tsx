@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
@@ -21,6 +21,9 @@ export const Navbar = memo(({ className }: NavbarProps): JSX.Element => {
   const [isAuthModal, setIsAuthModal] = useState(false);
   const dispatch = useDispatch();
   const authData = useSelector(getUserAuthData);
+  console.log('Auth Data:', authData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -33,6 +36,9 @@ export const Navbar = memo(({ className }: NavbarProps): JSX.Element => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  console.log(isAdmin, isManager);
+  const isAdminOrManager = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -50,6 +56,15 @@ export const Navbar = memo(({ className }: NavbarProps): JSX.Element => {
           trigger={<Avatar size={40} src={authData.avatar} alt={authData.username} />}
           className={classes.dropdown}
           items={[
+            ...(isAdminOrManager
+              ? [
+                  {
+                    onClick: () => {},
+                    content: t('AdminPanel'),
+                    href: RoutePath.admin_panel
+                  }
+                ]
+              : []),
             {
               onClick: onLogout,
               content: t('logout')

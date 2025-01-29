@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduction_project=self.webpackChunkproduction_project||[]).push([[399],{8399:(t,e,n)=>{n.r(e),n.d(e,{default:()=>o});var r=n(5893),c=n(4478),u=n(8798);const o=function(){var t=(0,c.$)("about").t;return(0,r.jsx)(u.T,{children:t("Admin Panel")})}}}]);

@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleRcommendationList } from './ArticleRcommendationList';
+import { ThemeDecorator } from 'shared/consfig/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from 'shared/consfig/storybook/StoreDecorator/StoreDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 const meta = {
   title: 'features/ArticleRcommendationList',
@@ -19,3 +22,5 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {}
 };
+
+Normal.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({}, {})];

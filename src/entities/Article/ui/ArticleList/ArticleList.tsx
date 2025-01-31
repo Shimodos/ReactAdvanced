@@ -80,7 +80,7 @@ export const ArticleList = (props: ArticleListProps) => {
     >
       {({ height, width, registerChild, isScrolling, scrollTop, onChildScroll }) => (
         <div
-          ref={registerChild}
+          ref={registerChild as (instance: HTMLDivElement | null) => void}
           className={classNames(classes.ArticleList, {}, [className, classes[view]])}
         >
           {virtualized ? (

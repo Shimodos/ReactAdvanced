@@ -6,7 +6,7 @@ import { CommetnList } from 'entities/Comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArticleComments } from '../../model/slices/ArticleDetailsCommentSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import addCommentForArticle from '../../model/services/sendCommentForArticle/addCommentForArticle';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -36,7 +36,10 @@ export const ArticleDetailsComment = ({ className, id }: ArticleDetailsCommentPr
   return (
     <div className={classNames('', {}, [className])}>
       <Text size={TextSize.M} title={t('Comments')} />
-      <AddCommentForm onSendComment={onSendComment} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <AddCommentForm onSendComment={onSendComment} />
+      </Suspense>
+
       <CommetnList isLoading={commentIsLoading} comments={comments} />
     </div>
   );

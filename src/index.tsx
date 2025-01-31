@@ -8,7 +8,15 @@ import 'shared/consfig/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundery';
 import { StoreProvider } from 'app/providers/StoreProvider';
 
-render(
+import { createRoot } from 'react-dom/client';
+const container = document.getElementById('root');
+
+if (!container) {
+  throw new Error('Container not found');
+}
+
+const root = createRoot(container);
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
@@ -17,7 +25,5 @@ render(
         </ThemeProvauder>
       </ErrorBoundary>
     </StoreProvider>
-  </BrowserRouter>,
-
-  document.getElementById('root')
+  </BrowserRouter>
 );

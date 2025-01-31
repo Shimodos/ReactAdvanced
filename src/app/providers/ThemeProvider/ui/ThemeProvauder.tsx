@@ -7,11 +7,12 @@ import {
 
 interface ThemeProvauderProps {
   initiTheme?: Theme;
+  children: React.ReactNode;
 }
 
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
-const ThemeProvauder: FC<ThemeProvauderProps> = (props) => {
+const ThemeProvauder = (props: ThemeProvauderProps) => {
   const { initiTheme, children } = props;
 
   const [theme, setTheme] = useState<Theme>(initiTheme || defaultTheme);

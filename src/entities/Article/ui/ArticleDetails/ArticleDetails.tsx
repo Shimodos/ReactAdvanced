@@ -4,16 +4,16 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
-import { articleDetailsReducer } from 'entities/Article/models/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../../models/slice/articleDetailsSlice';
 import { useCallback, useEffect } from 'react';
-import { fetchArticleById } from 'entities/Article/models/services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '../../models/services/fetchArticleById/fetchArticleById';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
   getArticleData,
   getArticleDetailsError,
   getArticleDetailsLoading
-} from 'entities/Article/models/selectors/articleDetails';
+} from '../../models/selectors/articleDetails';
 import { AlignText, Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
@@ -21,7 +21,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { ArticleBlock, ArticleBlockType } from 'entities/Article/models/types/article';
+import { ArticleBlock, ArticleBlockType } from '../../models/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

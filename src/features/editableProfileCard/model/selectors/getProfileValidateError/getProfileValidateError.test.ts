@@ -2,7 +2,7 @@
 
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { getProfileValidateError } from './getProfileValidateError';
-import { validateProfileDataError } from 'entities/Profile/model/type/profile';
+import { validateProfileDataError } from '../../consts/const';
 
 describe('getLoginError', () => {
   test('should return loginForm error', () => {

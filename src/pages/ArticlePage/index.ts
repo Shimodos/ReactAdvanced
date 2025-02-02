@@ -1,3 +1,3 @@
 export { ArticlePageAsync as ArticlePage } from './ui/ArticlePage.async';
 
-export { ArticlePageSchema } from './model/types/ArticlePageSchema';
+export type { ArticlePageSchema } from './model/types/ArticlePageSchema';

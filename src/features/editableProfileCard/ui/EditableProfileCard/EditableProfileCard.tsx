@@ -5,7 +5,6 @@ import { memo, useCallback } from 'react';
 
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { validateProfileDataError } from 'entities/Profile/model/type/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { Currency } from 'entities/Currency';
@@ -22,6 +21,7 @@ import {
   DynamicModuleLoder,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoder/DynamicModuleLoder';
+import { validateProfileDataError } from '../../model/consts/const';
 
 interface EditableProfileCardProps {
   className?: string;

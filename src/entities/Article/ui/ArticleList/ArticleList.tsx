@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './ArticleList.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Article, ArticleView } from '../../../../entities/Article';
+import { Article, ArticleView } from '../../models/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSceleton';
 import { Text, TextSize } from 'shared/ui/Text/Text';

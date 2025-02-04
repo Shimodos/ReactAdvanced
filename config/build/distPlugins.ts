@@ -4,6 +4,7 @@ import { DistOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 export function distConfig({
   paths,
@@ -33,6 +34,10 @@ export function distConfig({
         }
       ]
     })
+    // new CircularDependencyPlugin({
+    //   exclude: /node_modules/,
+    //   failOnError: true
+    // })
   ];
 
   if (isDev) {

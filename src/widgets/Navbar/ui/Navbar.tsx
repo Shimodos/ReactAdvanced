@@ -11,6 +11,9 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
 import MyDropdown from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
 
 interface NavbarProps {
   className?: string;
@@ -51,31 +54,35 @@ export const Navbar = memo(({ className }: NavbarProps): JSX.Element => {
         >
           {t('CreateNewArticle')}
         </AppLink>
-        <MyDropdown
-          direction="down left"
-          trigger={<Avatar size={40} src={authData.avatar} alt={authData.username} />}
-          className={classes.dropdown}
-          items={[
-            ...(isAdminOrManager
-              ? [
-                  {
-                    onClick: () => {},
-                    content: t('AdminPanel'),
-                    href: RoutePath.admin_panel
-                  }
-                ]
-              : []),
-            {
-              onClick: onLogout,
-              content: t('logout')
-            },
-            {
-              onClick: () => {},
-              content: t('ProfilePage'),
-              href: RoutePath.profile + authData.id
-            }
-          ]}
-        />
+        <HStack gap={'16'} className={classes.actions}>
+          <Button theme={ThemeButton.CLEAR}>
+            <Icon Svg={NotificationIcon} />
+          </Button>
+          <MyDropdown
+            direction="down left"
+            trigger={<Avatar size={40} src={authData.avatar} alt={authData.username} />}
+            items={[
+              ...(isAdminOrManager
+                ? [
+                    {
+                      onClick: () => {},
+                      content: t('AdminPanel'),
+                      href: RoutePath.admin_panel
+                    }
+                  ]
+                : []),
+              {
+                onClick: onLogout,
+                content: t('logout')
+              },
+              {
+                onClick: () => {},
+                content: t('ProfilePage'),
+                href: RoutePath.profile + authData.id
+              }
+            ]}
+          />
+        </HStack>
       </header>
     );
   }

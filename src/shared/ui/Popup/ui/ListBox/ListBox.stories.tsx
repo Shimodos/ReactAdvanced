@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../app/styles/index.scss';
-import Listbox from './ListBox';
+import { ListBox } from './ListBox';
 
 const meta = {
   title: 'shared/Listbox',
-  component: Listbox,
+  component: ListBox,
   parameters: {
     layout: 'centered'
   },
@@ -13,7 +13,7 @@ const meta = {
     // backgroundColor: { control: 'color' }
     // value: { control: 'text' }
   }
-} satisfies Meta<typeof Listbox>;
+} satisfies Meta<typeof ListBox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

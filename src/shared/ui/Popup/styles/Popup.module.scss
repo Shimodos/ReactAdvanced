@@ -1,0 +1,41 @@
+.popup {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--inverted-primary-color);
+  color: var(--card-bg);
+  border-radius: 8px;
+}
+
+.disabled {
+  opacity: 0.1;
+  background: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+}
+
+.optionDownLeft {
+  top: 100%;
+  right: 0;
+}
+.optionUpLeft {
+  bottom: 100%;
+  right: 0;
+}
+.optionDownRight {
+  top: 100%;
+  left: 0;
+}
+.optionUpRight {
+  bottom: 100%;
+  left: 0;
+}

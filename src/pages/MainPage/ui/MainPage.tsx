@@ -2,7 +2,7 @@
 import { Counter } from 'entities/Counter';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Listbox from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popup';
 import { Page } from 'shared/ui/Page/Page';
 import { HStack, VStack } from 'shared/ui/Stack';
 
@@ -17,7 +17,7 @@ const MainPage = () => {
       <div>LisBox</div>
       <div>LisBox</div>
       <VStack gap="8">
-        <Listbox
+        <ListBox
           defaultValue="Durward Reynolds"
           onChange={(value: string) => {}}
           value={undefined}

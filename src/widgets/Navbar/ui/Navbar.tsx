@@ -9,7 +9,7 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entiti
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
-import MyDropdown from 'shared/ui/Dropdown/Dropdown';
+import { MyDropdown, Popover } from 'shared/ui/Popup';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -55,6 +55,15 @@ export const Navbar = memo(({ className }: NavbarProps): JSX.Element => {
           {t('CreateNewArticle')}
         </AppLink>
         <HStack gap={'16'} className={classes.actions}>
+          <Popover
+            trigger={
+              <Button theme={ThemeButton.CLEAR}>
+                <Icon Svg={NotificationIcon} />
+              </Button>
+            }
+          >
+            123
+          </Popover>
           <Button theme={ThemeButton.CLEAR}>
             <Icon Svg={NotificationIcon} />
           </Button>

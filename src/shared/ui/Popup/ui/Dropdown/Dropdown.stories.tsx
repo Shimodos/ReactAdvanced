@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../app/styles/index.scss';
-import Dropdown from './Dropdown';
-import { Button } from '../Button/Button';
+import { MyDropdown } from './Dropdown';
+import { Button } from '../../../Button/Button';
 
 const meta = {
   title: 'shared/Dropdown',
-  component: Dropdown,
+  component: MyDropdown,
   parameters: {
     // layout: 'centered',
     // backgrounds: {
@@ -17,7 +17,7 @@ const meta = {
     // backgroundColor: { control: 'color' }
     // value: { control: 'text' }
   }
-} satisfies Meta<typeof Dropdown>;
+} satisfies Meta<typeof MyDropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

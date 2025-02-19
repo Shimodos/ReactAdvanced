@@ -1,0 +1,15 @@
+.notificationButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.notifications {
+  min-height: 150px;
+  max-width: 300px;
+  width: 500px;
+  overflow-y: auto;
+}

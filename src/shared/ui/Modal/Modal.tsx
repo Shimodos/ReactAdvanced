@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
   className?: string;
@@ -54,9 +55,9 @@ export const Modal = (props: ModalProps) => {
     [handelClose]
   );
 
-  const onContentClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-    e.stopPropagation();
-  };
+  // const onContentClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+  //   e.stopPropagation();
+  // };
 
   useEffect(() => {
     if (isOpen) {
@@ -80,11 +81,9 @@ export const Modal = (props: ModalProps) => {
   return (
     <Portal>
       <div className={classNames(classes.Modal, mods, [className, theme, 'app_modal'])}>
-        <div className={classes.overlay} onClick={handelClose}>
-          <div className={classes.content} onClick={onContentClick}>
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={handelClose} />
+
+        <div className={classes.content}>{children}</div>
       </div>
     </Portal>
   );

@@ -20,7 +20,7 @@ export const Drawer = (props: DrawerProps) => {
   return (
     <div className={classNames(classes.Drawer, mods, [className, theme, 'app_drawer'])}>
       <Overlay onClick={onClose} className={classes.overlay} />
-      <div className={classes.constent}>{children}</div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 };

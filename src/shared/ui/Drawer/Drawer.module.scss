@@ -40,7 +40,7 @@
   border-radius: 12px;
 }
 
-.opened {
+.open {
   pointer-events: auto;
   opacity: 1;
   z-index: var(--modal-z-index);
@@ -48,4 +48,11 @@
   .content {
     transform: translateY(0%);
   }
+}
+
+.isClosing {
+  .content {
+    transform: translateY(100%);
+  }
+  opacity: calc(var(--modal-opacity) * 0.5);
 }

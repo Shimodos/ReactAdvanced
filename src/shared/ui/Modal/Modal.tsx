@@ -1,17 +1,12 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import classes from './Modal.module.scss';
-import React, {
-  MutableRefObject,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import { ReactNode } from 'react';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Overlay } from '../Overlay/Overlay';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 
+const ANIMATION_DILAY = 300;
 interface ModalProps {
   className?: string;
   children?: ReactNode;
@@ -21,53 +16,12 @@ interface ModalProps {
 }
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
-
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+  const { isClosing, isMounted, Close } = useModal({
+    isOpen,
+    onClose,
+    animationDaly: ANIMATION_DILAY
+  });
   const { theme } = useTheme();
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  const ANIMATION_DILAY = 300;
-
-  const handelClose = useCallback((): void => {
-    if (onClose) {
-      setIsClosing(true);
-      timeRef.current = setTimeout(() => {
-        setIsClosing(false);
-        onClose();
-        setIsClosing(false);
-      }, ANIMATION_DILAY);
-    }
-  }, [onClose]);
-
-  const onKeydDown = useCallback(
-    (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') {
-        handelClose();
-      }
-    },
-    [handelClose]
-  );
-
-  // const onContentClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-  //   e.stopPropagation();
-  // };
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeydDown);
-    }
-    return () => {
-      clearTimeout(timeRef.current);
-      window.removeEventListener('keydown', onKeydDown);
-    };
-  }, [isOpen, onKeydDown]);
 
   const mods: Mods = {
     [classes.open]: isOpen,
@@ -81,7 +35,7 @@ export const Modal = (props: ModalProps) => {
   return (
     <Portal>
       <div className={classNames(classes.Modal, mods, [className, theme, 'app_modal'])}>
-        <Overlay onClick={handelClose} />
+        <Overlay onClick={Close} />
 
         <div className={classes.content}>{children}</div>
       </div>

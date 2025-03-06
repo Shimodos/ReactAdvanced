@@ -1,7 +1,7 @@
 import React from 'react';
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 import { StoryFn } from '@storybook/react';
-import { Theme, ThemeProvauder } from 'app/providers/ThemeProvider';
+import { Theme, ThemeProvauder } from '@/app/providers/ThemeProvider';
 
 export const ThemeDecorator = (theme: Theme): ((StoryComponent: StoryFn) => JSX.Element) => {
   const ThemedComponent = (StoryComponent: StoryFn): JSX.Element => {

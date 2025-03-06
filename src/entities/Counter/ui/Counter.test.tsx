@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { Counter } from './Counter';
-import { componentRouter } from 'shared/lib/tests/componentRouter/componentRouter';
+import { componentRouter } from '@/shared/lib/tests/componentRouter/componentRouter';
 // import { userEvent } from '@storybook/test';
 
 describe('Counter', () => {

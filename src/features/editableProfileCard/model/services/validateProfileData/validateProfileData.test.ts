@@ -1,7 +1,7 @@
 // write test fore selectors
-import { Country } from 'entities/Country/model/types/Country';
+import { Country } from '@/entities/Country/model/types/Country';
 import { validateProfileData } from './validateProfileData';
-import { Currency } from 'entities/Currency/model/types/Currency';
+import { Currency } from '@/entities/Currency/model/types/Currency';
 import { validateProfileDataError } from '../../consts/const';
 
 const data = {

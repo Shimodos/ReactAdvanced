@@ -1,8 +1,8 @@
 // write test fore selectors
-import { Country } from 'entities/Country/model/types/Country';
+import { Country } from '@/entities/Country/model/types/Country';
 import { updateProfileData } from './updateProfileData';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Currency } from 'entities/Currency/model/types/Currency';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Currency } from '@/entities/Currency/model/types/Currency';
 import { validateProfileDataError } from '../../consts/const';
 
 const data = {

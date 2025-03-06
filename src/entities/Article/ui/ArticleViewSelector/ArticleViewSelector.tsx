@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './ArticleViewSelector.module.scss';
-import { ArticleView } from 'entities/Article/models/types/article';
-import ListIcon from 'shared/assets/icons/list-24-24.svg';
-import TileIcon from 'shared/assets/icons/tiled-24-24.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { ArticleView } from '@/entities/Article/models/types/article';
+import ListIcon from '@/shared/assets/icons/list-24-24.svg';
+import TileIcon from '@/shared/assets/icons/tiled-24-24.svg';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 
 interface ArticleViewSelectorProps {
   className?: string;

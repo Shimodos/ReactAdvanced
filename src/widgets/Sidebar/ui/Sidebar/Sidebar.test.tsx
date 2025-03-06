@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from './Sidebar';
-import { componentRouter } from 'shared/lib/tests/componentRouter/componentRouter';
+import { componentRouter } from '@/shared/lib/tests/componentRouter/componentRouter';
 
 describe('Sidebar', () => {
   test('with only first param', () => {

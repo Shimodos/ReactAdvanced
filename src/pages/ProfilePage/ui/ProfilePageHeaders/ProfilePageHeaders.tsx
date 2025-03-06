@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { getProfileData } from 'features/editableProfileCard/model/selectors/getProfileData/getProfileData';
-import { getProfileReadonly } from 'features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from 'features/editableProfileCard/model/slice/profileSlice';
-import { updateProfileData } from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { getProfileData } from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '@/features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { updateProfileData } from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
 
 interface ProfilePageHeadersProps {
   className?: string;

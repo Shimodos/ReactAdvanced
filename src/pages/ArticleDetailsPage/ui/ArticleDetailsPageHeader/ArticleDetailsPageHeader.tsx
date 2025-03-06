@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './ArticleDetailsPageHeader.module.scss';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { fetchRecommendationArticle } from 'pages/ArticleDetailsPage/model/services/fetchRecommendationArticle/fetchRecommendationArticle';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { RoutePath } from 'shared/consfig/routeConfig/routeConfig';
+import { fetchCommentsByArticleId } from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchRecommendationArticle } from '@/pages/ArticleDetailsPage/model/services/fetchRecommendationArticle/fetchRecommendationArticle';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { RoutePath } from '@/shared/consfig/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
-import { getUserAuthData } from 'entities/User';
-import { getArticleData } from 'entities/Article';
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
+import { getUserAuthData } from '@/entities/User';
+import { getArticleData } from '@/entities/Article';
+import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;

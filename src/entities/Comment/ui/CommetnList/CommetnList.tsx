@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './CommetnList.module.scss';
 import { Comment } from '../../models/type/comment';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { CommentcCard } from '../CommentcCard/CommentcCard';
 

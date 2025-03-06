@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './ArticleImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../../../entities/Article/models/types/article';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleImageBlockComponentProps {
   className?: string;

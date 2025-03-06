@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './ArticleCreatePage.module.scss';
 interface ArticleCreatePageProps {
   className?: string;

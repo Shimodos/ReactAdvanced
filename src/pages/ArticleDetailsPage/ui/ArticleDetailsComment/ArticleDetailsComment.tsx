@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 // import classes from './ArticleDetailsComment.module.scss';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { AddCommentForm } from 'features/addCommentForm';
-import { CommetnList } from 'entities/Comment';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { CommetnList } from '@/entities/Comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArticleComments } from '../../model/slices/ArticleDetailsCommentSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { Suspense, useCallback } from 'react';
 import addCommentForArticle from '../../model/services/sendCommentForArticle/addCommentForArticle';
 import { useTranslation } from 'react-i18next';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 interface ArticleDetailsCommentProps {

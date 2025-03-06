@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import classes from './Button.module.scss';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 export enum ThemeButton {
   CLEAR = 'clear',

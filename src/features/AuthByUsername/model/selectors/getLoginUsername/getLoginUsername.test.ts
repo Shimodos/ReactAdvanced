@@ -1,6 +1,6 @@
 // write test fore selectors
 
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername', () => {

@@ -1,4 +1,4 @@
-import { ArticleList } from 'entities/Article';
+import { ArticleList } from '@/entities/Article';
 import {
   getArticlePageError,
   getArticlePageIsLoading,
@@ -6,9 +6,9 @@ import {
 } from '../../model/selectors/articlePageSelectors';
 import { getArticle } from '../../model/slices/ArticlePageSlice';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 
 interface ArticleInfinitListProps {
   className?: string;

@@ -1,0 +1,4 @@
+# Browser that we support
+defaults
+not IE 11
+not dead

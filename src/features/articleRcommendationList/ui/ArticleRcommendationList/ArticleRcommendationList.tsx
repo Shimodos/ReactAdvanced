@@ -22,7 +22,7 @@ export const ArticleRcommendationList = memo((props: ArticleRcommendationListPro
   return (
     <VStack gap={'8'} className={classNames('', {}, [className])}>
       <Text size={TextSize.L} title={t('Recommends')} />
-      <ArticleList isLoading={isLoading} articcle={articles} target="_blank" virtualized={false} />
+      <ArticleList isLoading={isLoading} articcle={articles} target="_blank" />
     </VStack>
   );
 });

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ListBox } from '@/shared/ui/Popup';
 import { Page } from '@/shared/ui/Page/Page';
 import { HStack, VStack } from '@/shared/ui/Stack';
+import { StarRaiting } from '@/shared/ui/StarRaiting/StarRaiting';
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ const MainPage = () => {
       <div>LisBox</div>
       <div>LisBox</div>
       <div>LisBox</div>
+      <StarRaiting size={60} />
     </Page>
   );
 };

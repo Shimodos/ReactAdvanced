@@ -6,6 +6,7 @@ import { ListBox } from '@/shared/ui/Popup';
 import { Page } from '@/shared/ui/Page/Page';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRaiting } from '@/shared/ui/StarRaiting/StarRaiting';
+import { RatingCard } from '@/entities/RatingCard';
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -36,6 +37,14 @@ const MainPage = () => {
       <div>LisBox</div>
       <div>LisBox</div>
       <StarRaiting size={60} />
+      <RatingCard
+        className=""
+        title="Title"
+        feedbackTitle="Feedback Title"
+        hasFeedback
+        onCancel={() => {}}
+        onAccept={() => {}}
+      />
     </Page>
   );
 };

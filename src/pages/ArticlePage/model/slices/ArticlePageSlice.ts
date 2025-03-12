@@ -7,9 +7,7 @@ import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList'
 import { ARTICLE_VIEV_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { ArticleSortField, ArticleType } from '@/entities/Article/models/types/article';
 import { SortOrder } from '@/shared/types';
-const articlesAdapter = createEntityAdapter<Article>({
-  selectId: (article) => article.id
-});
+const articlesAdapter = createEntityAdapter<Article>();
 
 export const getArticle = articlesAdapter.getSelectors<StateSchema>(
   (state) => state.articlePage || articlesAdapter.getInitialState()

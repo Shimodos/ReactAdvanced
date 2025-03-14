@@ -10,6 +10,7 @@ import { articleDetailsPageReducer } from '../../../../pages/ArticleDetailsPage/
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRcommendationList } from '@/features/articleRcommendationList';
 import { ArticleDetailsComment } from '../ArticleDetailsComment/ArticleDetailsComment';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -32,6 +33,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <Page>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
+        <ArticleRating className={className} />
         <ArticleRcommendationList />
         <ArticleDetailsComment id={id} />
       </Page>

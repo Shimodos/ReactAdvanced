@@ -59,9 +59,7 @@
       "views": 1234,
       "createdAt": "2022-09-01",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -131,9 +129,7 @@
       "views": 124,
       "createdAt": "2020-09-01",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -203,9 +199,7 @@
       "views": 234,
       "createdAt": "2023-09-01",
       "userId": "1",
-      "type": [
-        "SCIENCE"
-      ],
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -275,9 +269,7 @@
       "views": 13432,
       "createdAt": "2019-09-01",
       "userId": "1",
-      "type": [
-        "SPORT"
-      ],
+      "type": ["SPORT"],
       "blocks": [
         {
           "id": "1",
@@ -347,9 +339,7 @@
       "views": 3234,
       "createdAt": "2018-09-01",
       "userId": "1",
-      "type": [
-        "SPORT"
-      ],
+      "type": ["SPORT"],
       "blocks": [
         {
           "id": "1",
@@ -419,10 +409,7 @@
       "views": 1234,
       "createdAt": "2021-09-01",
       "userId": "1",
-      "type": [
-        "js",
-        "news"
-      ],
+      "type": ["js", "news"],
       "blocks": [
         {
           "id": "1",
@@ -492,10 +479,7 @@
       "views": 1234,
       "createdAt": "2021-09-01",
       "userId": "1",
-      "type": [
-        "js",
-        "news"
-      ],
+      "type": ["js", "news"],
       "blocks": [
         {
           "id": "1",
@@ -565,10 +549,7 @@
       "views": 1234,
       "createdAt": "2021-09-01",
       "userId": "1",
-      "type": [
-        "js",
-        "news"
-      ],
+      "type": ["js", "news"],
       "blocks": [
         {
           "id": "1",
@@ -638,10 +619,7 @@
       "views": 1234,
       "createdAt": "2021-09-01",
       "userId": "1",
-      "type": [
-        "js",
-        "news"
-      ],
+      "type": ["js", "news"],
       "blocks": [
         {
           "id": "1",
@@ -711,10 +689,7 @@
       "views": 1234,
       "createdAt": "2021-09-01",
       "userId": "1",
-      "type": [
-        "js",
-        "news"
-      ],
+      "type": ["js", "news"],
       "blocks": [
         {
           "id": "1",
@@ -868,27 +843,21 @@
       "id": "1",
       "username": "test_wobble@ukr.net",
       "password": "Qsz1Wdx2",
-      "role": [
-        "ADMIN"
-      ],
+      "role": ["ADMIN"],
       "avatar": "https://www.w3schools.com/w3images/avatar1.png"
     },
     {
       "id": "2",
       "username": "admin",
       "password": "123",
-      "role": [
-        "USER"
-      ],
+      "role": ["USER"],
       "avatar": "https://www.w3schools.com/w3images/avatar3.png"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "role": [
-        "MANAGER"
-      ],
+      "role": ["MANAGER"],
       "avatar": "https://www.w3schools.com/w3images/avatar3.png"
     }
   ],
@@ -914,6 +883,52 @@
       "city": "Lvsdsdd",
       "username": "Olga",
       "avatar": "https://www.w3schools.com/w3images/avatar1.png"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "Great article!"
+    },
+    {
+      "id": "2",
+      "articleId": "1",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "Good article!"
+    },
+    {
+      "id": "3",
+      "articleId": "1",
+      "userId": "3",
+      "rate": 3,
+      "feedback": "Okay article."
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "profileId": "1",
+      "userId": "2",
+      "rate": 5,
+      "feedback": "Great profile!"
+    },
+    {
+      "id": "2",
+      "profileId": "2",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "Good profile!"
+    },
+    {
+      "id": "3",
+      "profileId": "1",
+      "userId": "3",
+      "rate": 3,
+      "feedback": "Okay profile."
     }
   ]
 }

@@ -30,12 +30,12 @@ export const RatingCard = (props: RatingCardProps) => {
     hasFeedback,
     onCancel,
     onAccept,
-    rate
+    rate = 0
   } = props;
   const { t } = useTranslation('feedback');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(rate || 0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
   const onSelectStars = useCallback(

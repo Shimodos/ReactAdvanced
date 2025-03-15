@@ -14,14 +14,15 @@ import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
   className?: string;
+  articleId: string;
 }
 
-const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+const ArticleDetailsPage = ({ className, articleId }: ArticleDetailsPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
   if (!id) {
-    return <Page>{t('ArtcicleNotFound')}</Page>;
+    return null;
   }
 
   const reducers: ReducersList = {
@@ -33,7 +34,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <Page>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating className={className} />
+        <ArticleRating articleId={id} />
         <ArticleRcommendationList />
         <ArticleDetailsComment id={id} />
       </Page>

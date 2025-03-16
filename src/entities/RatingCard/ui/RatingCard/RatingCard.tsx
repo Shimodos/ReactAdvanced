@@ -23,16 +23,8 @@ interface RatingCardProps {
   rate?: number;
 }
 export const RatingCard = (props: RatingCardProps) => {
-  const {
-    className,
-    title = 'Default Title',
-    feedbackTitle,
-    hasFeedback,
-    onCancel,
-    onAccept,
-    rate = 0
-  } = props;
-  const { t } = useTranslation('feedback');
+  const { className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0 } = props;
+  const { t } = useTranslation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [starsCount, setStarsCount] = useState(rate);
@@ -64,7 +56,7 @@ export const RatingCard = (props: RatingCardProps) => {
 
   const modalContent = (
     <VStack gap={'16'} align={'center'} justify={'center'}>
-      <Text title={feedbackTitle} />
+      <Text title={starsCount ? t('ratingTitle') : title} />
       <Input placeholder={t('Your feedback')} value={feedback} onChange={setFeedback} />
       <HStack max gap={'16'} justify={'end'}>
         <Button theme={ThemeButton.OUTLINE_RED} onClick={onCancelHandler}>
@@ -78,8 +70,8 @@ export const RatingCard = (props: RatingCardProps) => {
   return (
     <Card className={classNames(classes.RatingCard, {}, [className])}>
       <VStack gap={'8'} align={'center'} justify={'center'}>
-        <Text title={'Title'} />
-        <StarRaiting size={30} onSelect={onSelectStars} />
+        <Text title={starsCount ? t('ratingTitle') : title} />
+        <StarRaiting selectedStars={starsCount} size={30} onSelect={onSelectStars} />
 
         <BrowserView>
           <Modal

@@ -34,5 +34,6 @@
   "Recommends": "Recommends",
   "EditArticle": "Edit article: ",
   "CreateNewArticle": "Create new article",
-  "UserNotFound": "User not found"
+  "UserNotFound": "User not found",
+  "ratingTitle": "Rate this article"
 }

@@ -34,5 +34,6 @@
   "Recommends": "Рекомендації",
   "EditArticle": "Редагувати статтю: ",
   "CreateNewArticle": "Створити нову статтю",
-  "UserNotFound": "Користувача не знайдено"
+  "UserNotFound": "Користувача не знайдено",
+  "ratingTitle": "Оцініть цю статтю"
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../../app/styles/index.scss';
+import '@/app/styles/index.scss';
 import { MyDropdown } from './Dropdown';
 import { Button } from '../../../Button/Button';
 

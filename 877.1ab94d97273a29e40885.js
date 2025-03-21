@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduction_project=self.webpackChunkproduction_project||[]).push([[877],{4877:function(e,r,n){n.r(r);var t=n(4848),c=n(6142),u=n(8679);r.default=function(){var e=(0,c.B)("").t;return(0,t.jsx)(u.Y,{children:e("ForbiddenPage")})}}}]);

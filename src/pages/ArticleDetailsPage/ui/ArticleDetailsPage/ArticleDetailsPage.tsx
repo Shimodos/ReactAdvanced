@@ -14,7 +14,7 @@ import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
   className?: string;
-  articleId: string;
+  articleId?: string;
 }
 
 const ArticleDetailsPage = ({ className, articleId }: ArticleDetailsPageProps) => {

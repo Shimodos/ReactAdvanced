@@ -11,6 +11,7 @@ import addCommentForArticle from '../../model/services/sendCommentForArticle/add
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AppDispatch } from '@/app/providers/StoreProvider';
 
 interface ArticleDetailsCommentProps {
   className?: string;
@@ -18,7 +19,7 @@ interface ArticleDetailsCommentProps {
 }
 export const ArticleDetailsComment = ({ className, id }: ArticleDetailsCommentProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentIsLoading = useSelector(getArticleCommentsIsLoading);
 

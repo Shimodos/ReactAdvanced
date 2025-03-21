@@ -5,7 +5,8 @@ import { CounterSchema } from '@/entities/Counter';
 import { LoginSchema } from '@/features/AuthByUsername';
 import {
   AnyAction,
-  CombinedState,
+  // CombinedState,
+  Dispatch,
   EnhancedStore,
   Reducer,
   ReducersMapObject
@@ -13,7 +14,6 @@ import {
 
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
-import { Dispatch } from 'redux';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
@@ -39,7 +39,8 @@ export type MountedReducers = OptionalRecord<StateSchemaKeys, boolean>;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  // reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  reduce: (state: StateSchema | undefined, action: AnyAction) => StateSchema;
   add: (key: StateSchemaKeys, reducer: Reducer) => void;
   remove: (key: StateSchemaKeys) => void;
   getMountedReducers: () => MountedReducers;

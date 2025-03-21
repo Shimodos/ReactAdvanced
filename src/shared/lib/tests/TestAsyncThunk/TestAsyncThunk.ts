@@ -1,6 +1,12 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { AsyncThunkAction, DeepPartial } from '@reduxjs/toolkit';
+import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
+
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
 
 type ActionCreatorType<Return, Arg, RejectedValue> = (
   arg: Arg

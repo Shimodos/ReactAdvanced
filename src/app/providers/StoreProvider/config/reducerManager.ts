@@ -1,4 +1,10 @@
-import { AnyAction, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  combineReducers,
+  Reducer,
+  ReducersMapObject,
+  UnknownAction
+} from '@reduxjs/toolkit';
 import { MountedReducers, ReducerManager, StateSchema, StateSchemaKeys } from './StateSchema';
 
 export function createReducerManager(
@@ -20,19 +26,26 @@ export function createReducerManager(
 
     // The root reducer function exposed by this object
     // This will be passed to the store
-    reduce: (state: StateSchema, action: AnyAction) => {
+    reduce: (state: StateSchema | undefined, action: UnknownAction) => {
+      // Если state не определен, используйте undefined для инициализации
+      if (state === undefined) {
+        return combinedReducer(undefined, action);
+      }
+
       // If any reducers have been removed, clean up their state first
       if (keysToRemove.length > 0) {
-        state = { ...state };
+        const nextState = { ...state };
         keysToRemove.forEach((key) => {
           // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-          delete state[key];
+          delete nextState[key];
         });
         keysToRemove = [];
+        state = nextState;
       }
 
       // Delegate to the combined reducer
-      return combinedReducer(state, action);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      return combinedReducer(state as any, action);
     },
 
     // Adds a new reducer with the specified key

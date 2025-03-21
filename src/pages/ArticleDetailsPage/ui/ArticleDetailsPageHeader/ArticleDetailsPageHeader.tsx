@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleData } from '@/entities/Article';
 import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
+import { AppDispatch } from '@/app/providers/StoreProvider';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -19,7 +20,7 @@ interface ArticleDetailsPageHeaderProps {
 export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeaderProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const userData = useSelector(getUserAuthData);
   const article = useSelector(getArticleData);

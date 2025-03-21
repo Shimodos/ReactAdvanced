@@ -12,7 +12,8 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
-    }
+    },
+    layout: 'fullscreen'
   },
   decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouteDecorator, SuspenseDecorator]
 };

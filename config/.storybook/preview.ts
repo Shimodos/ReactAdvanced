@@ -13,7 +13,16 @@ const preview: Preview = {
         date: /Date$/i
       }
     },
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+
+    themes: {
+      default: 'light',
+      list: [
+        { name: 'light', class: Theme.LIGHT, color: '#fff' },
+        { name: 'dark', class: Theme.DARK, color: '#3b5998' },
+        { name: 'pink', class: Theme.PINK, color: '#ff69b4' }
+      ]
+    }
   },
   decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouteDecorator, SuspenseDecorator]
 };

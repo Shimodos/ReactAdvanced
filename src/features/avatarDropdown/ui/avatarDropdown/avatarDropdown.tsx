@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './avatarDropdown.module.scss';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { MyDropdown } from '@/shared/ui/Popup';
-import { RoutePath } from '@/shared/consfig/routeConfig/routeConfig';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/consfig/routeConfig/routeConfig';
 
 import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
@@ -43,7 +43,7 @@ export const AvatarDropdown = ({ className }: avatarDropdownProps) => {
               {
                 onClick: () => {},
                 content: t('AdminPanel'),
-                href: RoutePath.admin_panel
+                href: getRouteAdminPanel()
               }
             ]
           : []),
@@ -54,7 +54,7 @@ export const AvatarDropdown = ({ className }: avatarDropdownProps) => {
         {
           onClick: () => {},
           content: t('ProfilePage'),
-          href: RoutePath.profile + authData.id
+          href: getRouteProfile(authData.id)
         }
       ]}
     />

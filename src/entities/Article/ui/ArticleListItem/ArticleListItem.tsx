@@ -15,7 +15,7 @@ import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { HTMLAttributeAnchorTarget } from 'react';
-import { RoutePath } from '@/shared/consfig/routeConfig/routeConfig';
+import { getRouteArticleDetails } from '@/shared/consfig/routeConfig/routeConfig';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
@@ -50,7 +50,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             <ArticleTextBlockComponent block={textBlocks} className={classes.textBlock} />
           )}
           <div className={classes.footer}>
-            <AppLink target={target} to={RoutePath.article_details + article.id}>
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
               <Button theme={ThemeButton.OUTLINE}>{t('readMore')}</Button>
             </AppLink>
 
@@ -63,7 +63,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.article_details + article.id}
+      to={getRouteArticleDetails(article.id)}
       className={classNames(classes.ArticleListItem, {}, [className, view ? classes[view] : ''])}
     >
       <Card className={classes.card}>

@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { fetchCommentsByArticleId } from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { fetchRecommendationArticle } from '@/pages/ArticleDetailsPage/model/services/fetchRecommendationArticle/fetchRecommendationArticle';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { RoutePath } from '@/shared/consfig/routeConfig/routeConfig';
+import { getRouteArticleDetails, getRouteArticles } from '@/shared/consfig/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleData } from '@/entities/Article';
@@ -27,11 +27,13 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
   const canEdit = useSelector(getCanEditArticle);
 
   const onBack = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.article_details}${article?.id}/edit`);
+    if (article) {
+      navigate(getRouteArticleDetails(article?.id));
+    }
   }, [navigate, article]);
 
   useInitialEffect(() => {

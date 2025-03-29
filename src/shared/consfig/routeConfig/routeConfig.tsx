@@ -30,65 +30,76 @@ export enum AppRoute {
   FORBIDDEN = 'forbidden'
 }
 
-export const RoutePath: Record<AppRoute, string> = {
-  [AppRoute.MAIN]: '/',
-  [AppRoute.ABOUT]: '/about',
-  [AppRoute.PROFILE]: '/profile/', // + id
-  [AppRoute.ARTICLES]: '/articles',
-  [AppRoute.ARTICLE_CREATE]: '/articles/new',
-  [AppRoute.ARTICLE_EDIT]: '/articles/:id/edit/', // + id
-  [AppRoute.ARTICLE_DETAILS]: '/articles/', // + id
-  [AppRoute.NOT_FOUND]: '*', // 404
-  [AppRoute.ADMIN_PANEL]: '/admin_panel',
-  [AppRoute.FORBIDDEN]: '/forbidden'
-};
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleCreate = () => '/articles/new';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteNotFound = () => '*';
+export const getRouteAdminPanel = () => '/admin_panel';
+export const getRouteForbidden = () => '/forbidden';
+
+// export const RoutePath: Record<AppRoute, string> = {
+//   [AppRoute.MAIN]: getRouteMain(),
+//   [AppRoute.ABOUT]: getRouteAbout(),
+//   [AppRoute.PROFILE]: getRouteProfile(':id'), // + id
+//   [AppRoute.ARTICLES]: getRouteArticles(),
+//   [AppRoute.ARTICLE_CREATE]: getRouteArticleCreate(),
+//   [AppRoute.ARTICLE_EDIT]: getRouteArticleEdit(':id'), // + id
+//   [AppRoute.ARTICLE_DETAILS]: getRouteArticleDetails(':id'), // + id
+//   [AppRoute.NOT_FOUND]: getRouteNotFound(),
+//   [AppRoute.ADMIN_PANEL]: getRouteAdminPanel(),
+//   [AppRoute.FORBIDDEN]: getRouteForbidden()
+// };
 
 export const routeConfig: Record<AppRoute, AppRouteProps> = {
   [AppRoute.MAIN]: {
-    path: RoutePath.main,
+    path: getRouteMain(),
     element: <MainPage />
   },
   [AppRoute.ABOUT]: {
-    path: RoutePath.about,
+    path: getRouteAbout(),
     element: <AboutePage />
   },
   [AppRoute.PROFILE]: {
-    path: `${RoutePath.profile}:id`,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true
   },
   [AppRoute.ARTICLES]: {
-    path: RoutePath.articles,
+    path: getRouteArticles(),
     element: <ArticlePage />,
     authOnly: true
   },
   [AppRoute.ARTICLE_CREATE]: {
-    path: RoutePath.article_create,
+    path: getRouteArticleCreate(),
     element: <ArticleEditPage />,
     authOnly: true
   },
   [AppRoute.ARTICLE_EDIT]: {
-    path: `${RoutePath.article_edit}`,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPage />,
     authOnly: true
   },
   [AppRoute.ARTICLE_DETAILS]: {
-    path: `${RoutePath.article_details}:id`,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true
   },
   [AppRoute.NOT_FOUND]: {
-    path: RoutePath.not_found,
+    path: getRouteNotFound(),
     element: <NotFoundPage />
   },
   [AppRoute.ADMIN_PANEL]: {
-    path: `${RoutePath.admin_panel}`,
+    path: getRouteAdminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     role: [UserRole.ADMIN, UserRole.MANAGER]
   },
   [AppRoute.FORBIDDEN]: {
-    path: `${RoutePath.forbidden}`,
+    path: getRouteForbidden(),
     element: <ForbiddenPage />
   }
 };

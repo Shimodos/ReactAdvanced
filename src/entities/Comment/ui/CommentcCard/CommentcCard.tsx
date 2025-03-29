@@ -5,7 +5,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Text } from '@/shared/ui/Text/Text';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/consfig/routeConfig/routeConfig';
+import { getRouteProfile } from '@/shared/consfig/routeConfig/routeConfig';
 
 interface CommentcCardProps {
   className?: string;
@@ -34,7 +34,7 @@ export const CommentcCard = (props: CommentcCardProps) => {
 
   return (
     <div className={classNames(classes.CommentcCard, {}, [className, classes.loading])}>
-      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={classes.header}>
+      <AppLink to={getRouteProfile(comment.user.id)} className={classes.header}>
         {comment.user.avatar ? <Avatar size={40} src={comment.user.avatar} /> : null}
         <Text title={comment.user.username} />
       </AppLink>

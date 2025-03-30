@@ -22,7 +22,7 @@ export function distWebpackConfig(options: DistOptions): webpack.Configuration {
       rules: distLoaders(options)
     },
     resolve: distResolve(options),
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
     devServer: isDev ? distDevServer(options) : undefined
   };
 }

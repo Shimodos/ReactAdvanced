@@ -1,8 +1,8 @@
 // import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@/shared/ui/Button/Button';
-import { counterActions } from '../model/slice/counterSlice';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { counterActions, useCounterActions } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useTranslation } from 'react-i18next';
 
 interface CounterProps {
@@ -10,15 +10,20 @@ interface CounterProps {
 }
 export const Counter = ({ className }: CounterProps): JSX.Element => {
   const dispatch = useDispatch();
-  const counterValue = useSelector(getCounterValue);
+  const counterValue = useCounterValue();
   const { t } = useTranslation();
+  const { decrement, increment, add } = useCounterActions();
 
-  const increment = (): void => {
-    dispatch(counterActions.increment());
+  const handleIncrement = (): void => {
+    increment();
   };
 
-  const decrement = (): void => {
-    dispatch(counterActions.decrement());
+  const handleDecrement = (): void => {
+    decrement();
+  };
+
+  const handleAdd = (): void => {
+    add(10);
   };
 
   return (
@@ -27,11 +32,14 @@ export const Counter = ({ className }: CounterProps): JSX.Element => {
         {t('counter.value')}
         {counterValue}
       </h1>
-      <Button onClick={decrement} data-testid="decrement-btn">
+      <Button onClick={handleDecrement} data-testid="decrement-btn">
         -
       </Button>
-      <Button onClick={increment} data-testid="increment-btn">
+      <Button onClick={handleIncrement} data-testid="increment-btn">
         +
+      </Button>
+      <Button onClick={handleAdd} data-testid="add-btn">
+        Add 10
       </Button>
     </div>
   );

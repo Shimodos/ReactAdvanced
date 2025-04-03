@@ -18,6 +18,11 @@ export default {
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
   rootDir: '../../',
+  // testPathIgnorePatterns: ['<rootDir>node_modules/'],
+  // transform: {
+  //   '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest'
+  // },
+  // transformIgnorePatterns: ['/node_modules/(?!axios)/'],
   moduleNameMapper: {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
     '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),

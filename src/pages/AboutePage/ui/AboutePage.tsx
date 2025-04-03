@@ -5,7 +5,7 @@ import { Page } from '@/shared/ui/Page/Page';
 const AboutePage: React.FC = () => {
   const { t } = useTranslation('about');
 
-  return <Page>{t('AboutPage')}</Page>;
+  return <Page data-testid={'AboutePage'}>{t('AboutPage')}</Page>;
 };
 
 export default AboutePage;

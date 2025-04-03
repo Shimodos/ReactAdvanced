@@ -27,7 +27,7 @@ export function distLoaders({ isDev }: DistOptions): webpack.RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
-        cachestDirectory: true,
+        cacheDirectory: true,
         presets: ['@babel/preset-env']
         // plugins: [
         //   [

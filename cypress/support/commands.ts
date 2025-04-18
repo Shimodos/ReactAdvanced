@@ -1,5 +1,5 @@
-Cypress.Commands.add('login', (email, password) => { ... });
-ypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login', (email, password) => {});
+
 //
 declare global {
   namespace Cypress {

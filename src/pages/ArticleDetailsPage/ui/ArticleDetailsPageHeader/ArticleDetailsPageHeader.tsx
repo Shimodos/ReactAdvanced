@@ -9,7 +9,6 @@ import { fetchRecommendationArticle } from '@/pages/ArticleDetailsPage/model/ser
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getRouteArticleDetails, getRouteArticles } from '@/shared/consfig/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
-import { getUserAuthData } from '@/entities/User';
 import { getArticleData } from '@/entities/Article';
 import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
 import { AppDispatch } from '@/app/providers/StoreProvider';
@@ -22,7 +21,6 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const userData = useSelector(getUserAuthData);
   const article = useSelector(getArticleData);
   const canEdit = useSelector(getCanEditArticle);
 
